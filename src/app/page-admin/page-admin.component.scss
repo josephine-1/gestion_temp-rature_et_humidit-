@@ -16,8 +16,9 @@ body{
    /*  border: 1px solid white; */
 }
 .container .part3{
-    height: 400px;
+    height: 300px;
     border: 5px solid white;
+    border-radius: 15px ;
 } 
 .gestion{
     border: 2px solid white;
@@ -38,4 +39,10 @@ a{
     font-size: 25px;
     font-weight: bold;
     
+}
+.sec img{
+    height: 175px;
+    width: 300px;
+    border-radius: 15px ;
+    border: 5px solid white;
 }
