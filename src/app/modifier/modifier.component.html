@@ -1,0 +1,29 @@
+<div class="back">
+    <div class="col-md-4">
+      <h3>Formulaire de modification</h3><br><br>
+    
+      <form [formGroup]="updateForm"> <!-- (ngSubmit)="onUpdate()" -->
+        <span class="alert alert-danger "  *ngIf="mailExiste != '' && mailExiste != undefined"> mail existe déja </span>
+        <div class="form-group">
+          <label>Prenom</label>
+          <input class="form-control" type="text" formControlName="firstName" required/>
+          <div class="alert alert-danger " *ngIf="updateForm.controls['firstName'].invalid && updateForm.controls['firstName'].touched"> Champs obligatoire</div>
+        </div><br>
+        <div class="form-group">
+          <label>Nom</label>
+          <input class="form-control" type="text" formControlName="lastName" required/>
+          <div class="alert alert-danger " *ngIf="updateForm.controls['lastName'].invalid && updateForm.controls['lastName'].touched"> Champs obligatoire</div>
+        </div><br>
+        <div class="form-group">
+        <label>Email</label>
+          <input class="form-control" type="email" formControlName="email" required/>
+          <div class="alert alert-danger " *ngIf="updateForm.controls['email'].invalid && updateForm.controls['email'].touched"> Champs obligatoire</div>
+        </div><br>
+        <div class="form-group pied">
+          <button class="btn btn-primary btn-block noir" type="submit">Modifier</button>
+          <button [routerLink]="['/listeActive']" class="noir">Retour</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,19 @@
+.back{
+    background-image: url('../../assets/back.png');
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    min-height: 100vh;
+}
+label, h3{
+    color: #fff;
+}
+.pied{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.noir{
+    background-color: black;
+    color: #fff;
+}

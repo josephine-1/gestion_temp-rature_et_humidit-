@@ -1,0 +1,35 @@
+.back{
+    background-image: url('../../assets/back.png');
+    background-size: cover;
+    min-height: 10vh;
+
+   
+}
+    
+th, td{
+    color: #fff;
+}
+input{
+    background: #000;
+    border: 4px solid white;
+    border-radius: 7px 7px 7px;
+    opacity: 0.5;
+    color: #fff;
+
+}
+.recherche, .tete{
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+}
+.container{
+    width: 100%;
+}
+.btn{
+    float: right;
+    color: blue;
+}
+.tete{
+    border: 5px solid white;
+    border-radius: 10px 10px 10px;
+}
