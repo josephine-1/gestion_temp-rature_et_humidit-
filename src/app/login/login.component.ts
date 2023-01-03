@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.authService.seConnecter(this.loginForm.value);
-    this.router.navigateByUrl('/listeArchive');
+    this.router.navigateByUrl('/');
   }
 
 }

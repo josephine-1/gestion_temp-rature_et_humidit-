@@ -7,12 +7,12 @@
         <img src="../../assets/image 9.png" alt="" srcset="">
     </div><br>
         
-    <h2 class="login-header">Connexion</h2>
+    <h1 class="login-header">Connexion</h1>
     <form [formGroup]="loginForm" class="login-container" (ngSubmit)="seConnecter()">
     <div class="contient">    
       <p [ngClass]="{ 'has-error': isSubmitted && formControls['email'].errors }">
         <label for="email">Email</label>
-        <input type="email" placeholder="Votre email" formControlName="email">
+        <input type="email" placeholder="Votre email" formControlName="email"><br>
       </p>
     </div>
     <div class="contient">
@@ -25,7 +25,7 @@
     <div class="contient"> 
       <p [ngClass]="{ 'has-error': isSubmitted && formControls['password'].errors }">
         <label for="password">Mot de passe</label>
-        <input type="password" placeholder="Votre mot de passe" formControlName="password">
+        <input type="password" placeholder="Votre mot de passe" formControlName="password"><br>
       </p>
     </div>
     <div class="contient"> 
@@ -35,7 +35,7 @@
     </div> <br>
    
         <div class="centre">
-            <input type="submit" value="Connecter">
+            <input type="submit" class="connecter" value="Connecter">
           </div>
    
       

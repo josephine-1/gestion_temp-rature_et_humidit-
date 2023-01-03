@@ -34,7 +34,7 @@
 .login-header {
   background: none;
   padding: 20px;
-  font-size: 1.4em;
+  font-size: 1.9em;
   font-weight: normal;
   text-align: center;
   text-transform: uppercase;
@@ -82,7 +82,7 @@ label, h1{
 }
 
 .login input[type="submit"] {
-  background: #000;
+  background: #17c;
   border-color: transparent;
   color: #fff;
   cursor: pointer;
@@ -96,11 +96,11 @@ label, h1{
 }
 
 .login input[type="submit"]:hover {
-  background: #17c;
+  background: rgb(39, 204, 17);
 }
 
 .login input[type="submit"]:focus {
-  border-color: #05a;
+  border-color: rgb(76, 174, 71);
   
 }
 .centre{
@@ -120,4 +120,7 @@ label, h1{
     display: flex;
     justify-content: center;
     width: 100%;
+}
+.connecter{
+  width: 100%;
 }
