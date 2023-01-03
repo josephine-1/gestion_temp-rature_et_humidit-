@@ -39,8 +39,8 @@ export class ModifierComponent implements OnInit {
         lastName: res['lastName'],
         email: res['email'],
       });
-    });
- */
+    }); */
+
     this.updateForm = this.formBuilder.group({
       firstName: [''],
       lastName: [''],

@@ -5,7 +5,7 @@
     background-size: cover;
     min-height: 100vh;
 }
-label, h3{
+label, h1{
     color: #fff;
 }
 .pied{
@@ -16,4 +16,7 @@ label, h3{
 .noir{
     background-color: black;
     color: #fff;
+}
+.danger{
+    color: red;
 }
