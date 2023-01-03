@@ -17,8 +17,8 @@
     </div>
     <div class="contient">
         <div *ngIf="isSubmitted && formControls['email'].errors" class="help-block">
-            <div *ngIf="formControls['email'].errors['required']"><font color="red">L'email est requis</font></div>
-            <div *ngIf="formControls['email'].invalid "><font color="red">Le format email est incorrecte</font></div>
+            <div *ngIf="formControls['email'].errors['required'] || formControls['email'].invalid"><font color="red">L'email invalide...</font></div>
+           <!--  <div *ngIf="formControls['email'].invalid "><font color="red">Le format email est incorrecte</font></div> -->
         </div>
     </div>
     
