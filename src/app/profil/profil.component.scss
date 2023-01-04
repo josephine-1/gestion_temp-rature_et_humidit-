@@ -1,0 +1,27 @@
+body
+{
+  background-image: url('../../assets/background.png');
+  background-size: cover;
+  height: 576px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#profil{
+  width: 40%;
+  height: 200px;
+  align-items: center;
+  border: 3px solid white;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+.pro{
+  margin-left: 30%;
+}
+.tt{
+  margin-left: 35%;
+}
+.btn
+{
+  width: 50%;
+}
