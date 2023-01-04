@@ -30,14 +30,7 @@ import { ListeAdministrateurComponent } from './liste-administrateur/liste-admin
     LoginComponent,
     AdminComponent,
     ListArchivesComponent,
-    ModifierComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
+    ModifierComponent,
     InscriptionComponent,
     ProfilComponent,
     ModifierProfilComponent,
@@ -47,6 +40,16 @@ import { ListeAdministrateurComponent } from './liste-administrateur/liste-admin
     PageUserComponent,
     ListeAdministrateurComponent,
   ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+
+  
+   
+  ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
