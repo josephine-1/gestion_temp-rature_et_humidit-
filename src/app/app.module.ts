@@ -10,7 +10,6 @@ import { AdminComponent } from './admin/admin.component';
 import { ListArchivesComponent } from './list-archives/list-archives.component';
 import { ModifierComponent } from './modifier/modifier.component';
 
-
 //  import { ReactiveFormsModule } from '@angular/forms'
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ProfilComponent } from './profil/profil.component';
@@ -35,6 +34,7 @@ import { ListeAdministrateurComponent } from './liste-administrateur/liste-admin
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
@@ -46,11 +46,7 @@ import { ListeAdministrateurComponent } from './liste-administrateur/liste-admin
     ListeUserComponent,
     PageUserComponent,
     ListeAdministrateurComponent,
-   
-  
-   
   ],
-
   providers: [],
   bootstrap: [AppComponent]
 })
