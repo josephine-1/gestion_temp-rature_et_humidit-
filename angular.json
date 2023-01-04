@@ -52,9 +52,11 @@
               "src/assets"
             ],
             "styles": [
+
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
 
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -120,11 +122,15 @@
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
 
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "eba571a1-c42a-402e-973c-2e0933d1fa53"
   }
 }

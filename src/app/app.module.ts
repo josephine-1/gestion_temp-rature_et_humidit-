@@ -8,6 +8,13 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { ProfilComponent } from './profil/profil.component';
 import { ModifierProfilComponent } from './modifier-profil/modifier-profil.component';
 import { ModifierPasswordComponent } from './modifier-password/modifier-password.component';
+import { PageAdminComponent } from './page-admin/page-admin.component';
+import { ListeUserComponent } from './liste-user/liste-user.component';
+import { PageUserComponent } from './page-user/page-user.component';
+import { ListeAdministrateurComponent } from './liste-administrateur/liste-administrateur.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -16,6 +23,13 @@ import { ModifierPasswordComponent } from './modifier-password/modifier-password
     ProfilComponent,
     ModifierProfilComponent,
     ModifierPasswordComponent
+    PageAdminComponent,
+    ListeUserComponent,
+    PageUserComponent,
+    ListeAdministrateurComponent,
+   
+  
+   
   ],
   imports: [
     BrowserModule,
