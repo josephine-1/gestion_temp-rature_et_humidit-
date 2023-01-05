@@ -12,6 +12,8 @@ import { ModifierPasswordComponent } from './modifier-password/modifier-password
 import { ModifierProfilComponent } from './modifier-profil/modifier-profil.component';
 import { PageAdminComponent } from './page-admin/page-admin.component'; 
 import { ListeUserComponent } from './liste-user/liste-user.component';
+import { DashbordComponent} from './dashbord/dashbord.component';
+import { DashbordOnComponent} from './dashbord-on/dashbord-on.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'connexion'},
   { path: 'connexion', component: LoginComponent },
@@ -25,13 +27,9 @@ const routes: Routes = [
   { path: 'modifierProfil', component: ModifierProfilComponent},
   { path: 'pageAdmin' , component: PageAdminComponent},
   { path: 'listeUser', component: ListeUserComponent},
-  
-  
-
-
-  
+  {path:"off", component: DashbordComponent},
+  {path: 'on', component: DashbordOnComponent},
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

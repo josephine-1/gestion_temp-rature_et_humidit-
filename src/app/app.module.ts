@@ -21,7 +21,8 @@ import { PageUserComponent } from './page-user/page-user.component';
 import { ListeAdministrateurComponent } from './liste-administrateur/liste-administrateur.component';
 
 
-
+import { DashbordComponent } from './dashbord/dashbord.component';
+import { DashbordOnComponent } from './dashbord-on/dashbord-on.component';
 
 
 @NgModule({
@@ -39,6 +40,9 @@ import { ListeAdministrateurComponent } from './liste-administrateur/liste-admin
     ListeUserComponent,
     PageUserComponent,
     ListeAdministrateurComponent,
+    DashbordComponent,
+    DashbordOnComponent
+
   ],
   imports: [
     BrowserModule,
