@@ -1,8 +1,15 @@
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
+import { ListArchivesComponent } from './list-archives/list-archives.component';
+import { ModifierComponent } from './modifier/modifier.component';
+
 //  import { ReactiveFormsModule } from '@angular/forms'
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ProfilComponent } from './profil/profil.component';
@@ -16,27 +23,33 @@ import { ListeAdministrateurComponent } from './liste-administrateur/liste-admin
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    AdminComponent,
+    ListArchivesComponent,
+    ModifierComponent,
     InscriptionComponent,
     ProfilComponent,
     ModifierProfilComponent,
-    ModifierPasswordComponent
+    ModifierPasswordComponent,
     PageAdminComponent,
     ListeUserComponent,
     PageUserComponent,
     ListeAdministrateurComponent,
-   
-  
-   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+
+  
+   
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

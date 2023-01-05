@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import UsersJson from '/home/josephine/Documents/gestion_temp-rature_et_humidit-/gestion_th/src/app/users.json';
+import UsersJson from '../users.json';
 
 
 interface USERS {
