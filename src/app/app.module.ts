@@ -22,14 +22,14 @@ import { ListeAdministrateurComponent } from './liste-administrateur/liste-admin
     InscriptionComponent,
     ProfilComponent,
     ModifierProfilComponent,
-    ModifierPasswordComponent
+    ModifierPasswordComponent,
     PageAdminComponent,
     ListeUserComponent,
     PageUserComponent,
     ListeAdministrateurComponent,
-   
-  
-   
+
+
+
   ],
   imports: [
     BrowserModule,
