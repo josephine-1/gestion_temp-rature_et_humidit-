@@ -10,10 +10,11 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { PageUserComponent } from './page-user/page-user.component';
 import { ModifierPasswordComponent } from './modifier-password/modifier-password.component';
 import { ModifierProfilComponent } from './modifier-profil/modifier-profil.component';
-import { PageAdminComponent } from './page-admin/page-admin.component'; 
+import { PageAdminComponent } from './page-admin/page-admin.component';
 import { ListeUserComponent } from './liste-user/liste-user.component';
 import { DashbordComponent} from './dashbord/dashbord.component';
 import { DashbordOnComponent} from './dashbord-on/dashbord-on.component';
+import { ProfilComponent } from './profil/profil.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'connexion'},
   { path: 'connexion', component: LoginComponent },
@@ -26,9 +27,10 @@ const routes: Routes = [
   { path: 'modifierPassword', component: ModifierPasswordComponent},
   { path: 'modifierProfil', component: ModifierProfilComponent},
   { path: 'pageAdmin' , component: PageAdminComponent},
+  { path: 'profil' , component:ProfilComponent},
   { path: 'listeUser', component: ListeUserComponent},
-  {path:"off", component: DashbordComponent},
-  {path: 'on', component: DashbordOnComponent},
+  { path:  "off", component: DashbordComponent},
+  { path: 'on', component: DashbordOnComponent},
 ];
 
 @NgModule({

@@ -2,13 +2,7 @@
 
 body{
     background-image:url('../../assets/back.png');
-    background-repeat: no-repeat;
-    background-size: cover;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    overflow-y: hidden;
-
 
    
 }
@@ -16,39 +10,45 @@ body{
     height: 100px;
     border: 5px solid white;
     border-radius: 15px ;
-} 
+
+}
  .container .part2{
-    height: 300px;
+    height: 50%;
+
    /*  border: 1px solid white; */
 }
 .container .part3{
-    height: 300px;
     border: 5px solid white;
     border-radius: 15px ;
-} 
+}
 .gestion{
     border: 2px solid white;
-    height:300px ;
+    height:250px ;
     border-radius: 15px ;
     border: 5px solid white;
 }
 .tmp-rel{
     border: 2px solid white;
-    height:300px ;
+    height:250px ;
     border-radius: 15px ;
     border: 5px solid white;
-   
+
 }
+.row{
+  height: 250px;
+}
+
 a{
     color: white !important;
     text-decoration: none;
     font-size: 15px;
     font-weight: bold;
-    
+
 }
 .sec img{
-    height: 175px;
+    height: 150px;
     width: 300px;
     border-radius: 15px ;
     border: 5px solid white;
 }
+

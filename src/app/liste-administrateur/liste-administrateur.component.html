@@ -10,31 +10,31 @@
 </head>
 <body>
   <div class="container ">
-  
+
   <div class="container-fluid part1">
       <div class="row">
         <div class="col-lg-6 ">
           <!-- <div>
             <h1 class="text-white">Dashbord</h1 --><!-- <img src="../../assets/dash.png" alt="dash"> -->
           <!-- </div> -->
-         <img src="../../assets/retour.png" alt="deconect">
+         <img src="../../assets/retour.png" alt="deconect" routerLink="/pageAdmin">
         </div>
-        
+
          <div class="col-lg-4">
-            
+
         </div>
          <div class="deconect col-lg-2 ">
-            <img src="../../assets/deconecter.png" alt="deconect">
-        </div> 
+            <img src="../../assets/deconecter.png" alt="deconect" (click)="deconnect()">
+        </div>
       </div>
   </div>
   <div class="search-hero rec">
     <input class=" rech" type="text" name="search"  autocomplete="off" placeholder="&#61442;  Recherche par nom,prenom ">
   </div><br>
-  
+
   <div class="container">
     <table class="table  border border-white table-striped ">
-      <thead> 
+      <thead>
           <tr class="tr text-white">
             <th>Prenom</th>
             <th>Nom</th>
@@ -73,7 +73,7 @@
       </tbody>
     </table>
   </div>
-</div> 
+</div>
 <!-- <pagination-controls (pageChange)="p=$event" class="text-center"></pagination-controls> -->
 </body>
 </html>
