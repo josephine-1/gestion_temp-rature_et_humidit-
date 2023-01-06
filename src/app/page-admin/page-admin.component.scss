@@ -2,15 +2,15 @@
 
 body{
     background-image:url('../../assets/back.png');
+    background-repeat: no-repeat;
     background-size: cover;
-    height: 59rem;
-    padding: 6rem;
+    height: 900px;
    
 }
 
 
  .container .part1{
-   /*  height: 100px; */
+    height: 100px; 
     border: 5px solid white;
     border-radius: 15px ;
    
@@ -40,7 +40,7 @@ body{
 a{
     color: white !important;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 15px;
     font-weight: bold;
     
 }
