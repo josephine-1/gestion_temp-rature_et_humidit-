@@ -52,18 +52,12 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
-=======
-
-              "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
-
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
->>>>>>> e754040298a5fec69fc09cdac689bed46b54900e
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
