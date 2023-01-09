@@ -5,7 +5,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 mongoose
-  .connect("mongodb+srv://issa:FOjCcZRA5imiXzbm@cluster0.szgf3wm.mongodb.net/test")
+  .connect("mongodb+srv://issa:0501Issa@cluster0.szgf3wm.mongodb.net/Utilisateur")
   .then((x) => {
     console.log(
       `Connexion établie: "${x.connections[0].name}"`
