@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 //ici j'importe des proprietés de angular liées a l'utilisation des formulaire
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { CrudService } from '../services/inscription.service';
+import { AuthService } from './.././shared/auth.service';
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
@@ -10,6 +11,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class InscriptionComponent implements OnInit{
 registerForm!: FormGroup
 submitted: Boolean= false
+password = 'password';
+mailExiste:string|null = null;
+users:any;
+
+constructor(private formBuilder: FormBuilder,
+  ){
+
+}
 //ici on gére le controle de saisit du formulaire
 ngOnInit(){
   this.registerForm = this.formBuilder.group({
@@ -27,9 +36,7 @@ ngOnInit(){
 });
 
   }
-constructor(private formBuilder: FormBuilder){
 
-}
 
    // la fonction getter est utiliser pour un accès facile aux champs de formulaire
    get f() { return this.registerForm.controls; }
