@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //ici j'importe des proprietés de angular liées a l'utilisation des formulaire
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-modifier-profil',
   templateUrl: './modifier-profil.component.html',
@@ -12,8 +12,8 @@ export class ModifierProfilComponent implements OnInit{
   //ici on gére le controle de saisit du formulaire
   ngOnInit(){
     this.registerForm = this.formBuilder.group({
-      prenom: ['', Validators.required],
-      nom: ['', Validators.required],
+      prenom: ['', [Validators.required, noWhitespaceValidator]],
+      nom: ['', [Validators.required, noWhitespaceValidator]],
       email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
 
 
@@ -40,3 +40,8 @@ export class ModifierProfilComponent implements OnInit{
      }
 
   }
+  export function  noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
+}
