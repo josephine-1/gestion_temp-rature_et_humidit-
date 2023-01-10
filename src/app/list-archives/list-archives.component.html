@@ -1,18 +1,36 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<div class="back">
-    <div class="tete">
-        <a href="http://"><img src="../../assets/téléchargement 2.png" alt="" width="50" height="50" title="Retour"></a>
-        <a href="http://"><span class="material-symbols-outlined" title="Deconnecter">logout</span></a>
-    </div>
-    <nav class="navbar">
-    <form class="container-fluid justify-content-center">
-        
-        </form>
-    </nav>
+
+    <nav *ngIf="etat != 0"  class="navbar navbar-expand-lg colorNav bg-dark">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <img src="../../assets/home.png" alt="">
+              </li>
+              <div class="info">
+                <p>{{prenom}}</p>
+                <p>{{nom}}</p>
+                <p>{{matricule}}</p>
+            </div>
+            </ul>
+            <form class="lesLiens">
+           <!--    <a routerLink="/active" id="active" >active</a>
+              <a routerLink="archive" id="archive"  >archive</a> -->
+              <a href="" (click)="deconnexion()">
+                  <svg width="30" height="35" viewBox="0 0 38 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13.25 39.625H5.58333C4.56667 39.625 3.59165 39.1772 2.87276 38.3802C2.15387 37.5832 1.75 36.5022 1.75 35.375V5.625C1.75 4.49783 2.15387 3.41683 2.87276 2.6198C3.59165 1.82277 4.56667 1.375 5.58333 1.375H13.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M26.666 31.125L36.2493 20.5L26.666 9.875" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M36.25 20.5H13.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+      
+              </a>
+            </form>
+          </div>
+        </div>
+      </nav>
     <div class="container">
         <div class="rechercher">
             <input type="text" placeholder="RECHERCHE" title="Rechercher">
-            <button class="btn btn-outline-success me-2 btn " type="button"><a> Liste des utilisateurs actives</a></button>
+            <button class="btn btn-outline-primary me-2 btn  text-white" type="button"><a> Liste des utilisateurs actives</a></button>
         </div>
             
     <table class="table a   lign=center">
@@ -56,5 +74,5 @@
     </tbody>
     </table>
     </div>
-</div>
+
 
