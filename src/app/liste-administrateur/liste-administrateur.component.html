@@ -1,21 +1,21 @@
 
-    <nav *ngIf="etat != 0"  class="navbar navbar-expand-lg colorNav bg-dark">
+    <nav class="navbar navbar-expand-lg colorNav bg-dark">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
                 <img src="../../assets/home.png" alt="">
             </li>
-            <div class="info">
+<!--             <div class="info">
               <p>{{prenom}}</p>
               <p>{{nom}}</p>
               <p>{{matricule}}</p>
-          </div>
+          </div> -->
           </ul>
           <form class="lesLiens">
          <!--    <a routerLink="/active" id="active" >active</a>
             <a routerLink="archive" id="archive"  >archive</a> -->
-            <a href="" (click)="deconnexion()">
+            <a href="">
                 <svg width="30" height="35" viewBox="0 0 38 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13.25 39.625H5.58333C4.56667 39.625 3.59165 39.1772 2.87276 38.3802C2.15387 37.5832 1.75 36.5022 1.75 35.375V5.625C1.75 4.49783 2.15387 3.41683 2.87276 2.6198C3.59165 1.82277 4.56667 1.375 5.58333 1.375H13.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M26.666 31.125L36.2493 20.5L26.666 9.875" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -38,8 +38,8 @@
         <tr align="center">
         <th scope="col">Prenom</th>
         <th scope="col">Nom</th>
-        <th scope="col">Matricule</th>
         <th scope="col">Email</th>
+        <th scope="col">Matricule</th>
         <th scope="col">Role</th>
         <th scope="col">Actions</th>
         </tr>
@@ -58,33 +58,40 @@
             </svg></button>
         </td>
         </tr> -->
-        <tr align="center">
-            <td>Modou</td>
-            <td>Lo</td>
-            <td>M2221I</td>
-            <td>modou@gmail.com</td>
-            <td>Admin</td>
-            <td class="text-center">
-              
-               
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 12C13.3261 12 14.5979 11.4732 15.5355 10.5355C16.4732 9.59785 17 8.32608 17 7C17 5.67392 16.4732 4.40215 15.5355 3.46447C14.5979 2.52678 13.3261 2 12 2C10.6739 2 9.40215 2.52678 8.46447 3.46447C7.52678 4.40215 7 5.67392 7 7C7 8.32608 7.52678 9.59785 8.46447 10.5355C9.40215 11.4732 10.6739 12 12 12V12Z" stroke="#0D6EFD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M19.2091 15.74L15.6691 19.28C15.5291 19.42 15.3991 19.68 15.3691 19.87L15.1791 21.22C15.1091 21.71 15.4491 22.05 15.9391 21.98L17.2891 21.79C17.4791 21.76 17.7491 21.63 17.8791 21.49L21.4191 17.95C22.0291 17.34 22.3191 16.63 21.4191 15.73C20.5291 14.84 19.8191 15.13 19.2091 15.74V15.74Z" stroke="#0D6EFD" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M18.6992 16.25C18.9992 17.33 19.8392 18.17 20.9192 18.47" stroke="#0D6EFD" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M3.41016 22C3.41016 18.13 7.26016 15 12.0002 15C13.0402 15 14.0402 15.15 14.9702 15.43" stroke="#0D6EFD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <svg width="24" height="24"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="#0D6EFD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M17.1496 13.82L14.1096 16.86M6.84961 13.82H17.1496" stroke="#0D6EFD" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M6.84961 10.18L9.88961 7.14001M17.1496 10.18H6.84961" stroke="#0D6EFD" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M18.4108 18.09L15.5908 20.91M18.4108 20.91L15.5908 18.09M12.0008 21.81C10.1808 21.81 8.37078 21.35 6.99078 20.43C4.57078 18.81 4.57078 16.17 6.99078 14.56C9.74078 12.72 14.2508 12.72 17.0008 14.56M12.1608 10.87C12.0608 10.86 11.9408 10.86 11.8308 10.87C10.683 10.831 9.59542 10.3468 8.79841 9.51995C8.0014 8.69307 7.55752 7.58844 7.56078 6.43999C7.56078 3.98999 9.54078 1.99999 12.0008 1.99999C12.5832 1.98948 13.162 2.0938 13.7041 2.30697C14.2462 2.52014 14.741 2.838 15.1602 3.2424C15.5795 3.6468 15.915 4.12982 16.1476 4.66388C16.3802 5.19794 16.5053 5.77258 16.5158 6.35499C16.5263 6.9374 16.422 7.51618 16.2088 8.05828C15.9956 8.60038 15.6778 9.09518 15.2734 9.51444C14.869 9.9337 14.386 10.2692 13.8519 10.5018C13.3178 10.7344 12.7432 10.8595 12.1608 10.87V10.87Z" stroke="#0D6EFD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </td>
-        </tr>
+          <tr *ngFor="let users of User | filter:searchText | paginate: { itemsPerPage: 5, currentPage: pages } ">
+      <!-- <th scope="row">{{ book._id }}</th> -->
+      <th scope="row">{{ users.prenom }}</th>
+      <td>{{ users.nom }}</td>
+      <td>{{ users.email }}</td>
+      <!-- <td>{{ book.tel }}</td> -->
+      <td>{{ users.matricule }}</td>
+      <td>{{ users.role }}</td>
+
+      <td class="text-center">
+        <a title="modifier" routerLink="/cpt6/{{ users._id }}" class="link-light btn btn-sm btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+        </svg></a>
+
+        <a title="swicher"  class="link-light btn btn-sm btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
+        </svg></a>
+
+        <a title="supprimer"  class="link-light btn btn-sm btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
+          <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
+        </svg></a>
+
+       <!--  <button class="btn btn-sm btn-danger" (click)="delete(book._id, i)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+</svg></button> -->
+      </td>
+    </tr>
     </tbody>
     </table>
+    <div class="pagination">
+      <pagination-controls  (pageChange)="pages = $event"></pagination-controls>
+    </div>
     </div>
 <!-- </div> -->
 
