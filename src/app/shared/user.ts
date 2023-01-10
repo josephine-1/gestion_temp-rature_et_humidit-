@@ -7,5 +7,5 @@ export class User {
     role?: String;
     etat?: boolean;
     matricule?:string;
-   // dateinscrit? : Date
+    date_inscription?: Date
   }
