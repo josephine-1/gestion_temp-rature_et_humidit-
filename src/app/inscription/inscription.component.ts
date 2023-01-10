@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CrudService } from '../services/inscription.service';
 import { AuthService } from './.././shared/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
@@ -16,11 +17,27 @@ mailExiste:string|null = null;
 users:any;
 
 constructor(private formBuilder: FormBuilder,
+  public fb: FormBuilder,
+  public authService: AuthService,
+  public router: Router,
   ){
+
+    this.registerForm = this.fb.group({
+      prenom: [''],
+      nom: [''],
+      email: [''],
+      role: [''],
+      password: [''],
+      confirmPassword: [''],
+      etat: [true],
+      matricule: [Date.now()],
+     // dateinscrit:[ new Date ]
+      
+    });
 
 }
 //ici on gére le controle de saisit du formulaire
-ngOnInit(){
+ngOnInit(): void{
   this.registerForm = this.formBuilder.group({
     prenom: ['', Validators.required],
     nom: ['', Validators.required],
@@ -28,6 +45,9 @@ ngOnInit(){
     role: ['', Validators.required],
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required],
+    etat: [true],
+    matricule: [Date.now()], 
+   // dateinscrit:[new Date]
 
 
   }, {
@@ -35,9 +55,44 @@ ngOnInit(){
                                                       //va géré la comparaison des mots de passe
 });
 
+this.getAllData()
+
   }
 
+  getAllData(){
+    return this.authService.getAllUser().subscribe(
+      data =>{
+            console.log(data)
+            this.users = data;
+      }
+    )
+  }
 
+  registerUser() {
+
+    for (const iterator of this.users) {
+     
+      if(iterator.email == this.registerForm.value.email)
+         { this.mailExiste = "Email existe déja";
+          console.log(this.mailExiste);
+          return;}
+    }
+    this.authService.signUp(this.registerForm.value).subscribe((res) => {
+      console.log(res.errors.error.email.message);
+      if (res.result) {
+        this.registerForm.reset();
+        alert("Inscription réussie hoooww!!!")
+        this.router.navigate(['connexion']);
+      }
+      else if((res.error)){
+        this.mailExiste = "Email existe déja";
+        
+        
+        
+      }
+    });
+  }
+  
    // la fonction getter est utiliser pour un accès facile aux champs de formulaire
    get f() { return this.registerForm.controls; }
 

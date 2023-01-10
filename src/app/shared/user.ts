@@ -1,11 +1,11 @@
 export class User {
     _id?: String;
-    firstName?: String;
-    email?: String;
+    prenom?: String;
+    nom?: String;
     password?: String;
-    tel?: Number;
-    profil?: String;
+    email?: string;
+    role?: String;
     etat?: boolean;
     matricule?:string;
-    dateinscrit? : Date
+   // dateinscrit? : Date
   }
