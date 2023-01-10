@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CrudService } from '../services/inscription.service';
 import { AuthService } from './.././shared/auth.service';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
@@ -39,8 +40,8 @@ constructor(private formBuilder: FormBuilder,
 //ici on gére le controle de saisit du formulaire
 ngOnInit(): void{
   this.registerForm = this.formBuilder.group({
-    prenom: ['', Validators.required],
-    nom: ['', Validators.required],
+    prenom: ['', [Validators.required, noWhitespaceValidator]],
+    nom: ['', [Validators.required, noWhitespaceValidator]],
     email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
     role: ['', Validators.required],
     password: ['', Validators.required],
@@ -104,6 +105,28 @@ this.getAllData()
            return;
        }
 
+       for (const iterator of this.users) {
+     
+        if(iterator.email == this.registerForm.value.email)
+           { this.mailExiste = "Email existe déja";
+            console.log(this.mailExiste);
+            return;}
+      }
+      this.authService.signUp(this.registerForm.value).subscribe((res) => {
+        console.log(res.errors.error.email.message);
+        if (res.result) {
+          this.registerForm.reset();
+          alert("Inscription réussie hoooww!!!")
+          this.router.navigate(['connexion']);
+        }
+        else if((res.error)){
+          this.mailExiste = "Email existe déja";
+          
+          
+          
+        }
+      });
+
        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
    }
 
@@ -126,4 +149,9 @@ export function MustMatch(controlName: string, matchingControlName: string) {
           matchingControl.setErrors(null);
       }
   }
+}
+export function  noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
 }
