@@ -26,7 +26,7 @@ import { DashbordOnComponent } from './dashbord-on/dashbord-on.component';
 
 
 
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+ import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PaginationComponent } from './pagination/pagination.component';
 /* import { HttpClient } from '@angular/common/http'; */
@@ -72,7 +72,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     RouterModule,
     HttpClientModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule
+     Ng2SearchPipeModule 
     
   
    
