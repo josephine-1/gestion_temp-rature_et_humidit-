@@ -32,7 +32,7 @@ constructor(private formBuilder: FormBuilder,
       confirmPassword: [''],
       etat: [true],
       matricule: [Date.now()],
-     // dateinscrit:[ new Date ]
+      date_inscription:[ new Date ]
       
     });
 
@@ -48,7 +48,7 @@ ngOnInit(): void{
     confirmPassword: ['', Validators.required],
     etat: [true],
     matricule: [Date.now()], 
-   // dateinscrit:[new Date]
+    date_inscription:[new Date]
 
 
   }, {
