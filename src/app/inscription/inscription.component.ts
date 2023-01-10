@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CrudService } from '../services/inscription.service';
 import { AuthService } from './.././shared/auth.service';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
@@ -39,8 +40,8 @@ constructor(private formBuilder: FormBuilder,
 //ici on gére le controle de saisit du formulaire
 ngOnInit(): void{
   this.registerForm = this.formBuilder.group({
-    prenom: ['', Validators.required],
-    nom: ['', Validators.required],
+    prenom: ['', [Validators.required, noWhitespaceValidator]],
+    nom: ['', [Validators.required, noWhitespaceValidator]],
     email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
     role: ['', Validators.required],
     password: ['', Validators.required],
@@ -104,6 +105,8 @@ this.getAllData()
            return;
        }
 
+      
+
        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
    }
 
@@ -126,4 +129,9 @@ export function MustMatch(controlName: string, matchingControlName: string) {
           matchingControl.setErrors(null);
       }
   }
+}
+export function  noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
 }

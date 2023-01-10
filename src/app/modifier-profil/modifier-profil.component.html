@@ -6,22 +6,26 @@
       </div>
       <div>
       </div>
-      <div class="col-md-8 a">
+      <div class="col-md-6">
         <label for="inputEmail4" class="form-label text-white" >PRENOM</label>
         <input type="text" formControlName="prenom" class="form-control"  placeholder="PRENOM"
         [ngClass]="{ 'is-invalid': submitted && registerForm.controls['prenom'].errors }" />
         <div *ngIf="submitted &&  registerForm.controls['prenom'].errors" class="text-danger">
-        <div *ngIf=" registerForm.controls['prenom'].errors['required']">Ce champ est requis</div>
+        <div *ngIf="registerForm.controls['prenom'].errors['required'];then content else other_content">here is ignored</div>
+        <ng-template #content>Ce champ est requis</ng-template>
+        <ng-template #other_content>invalide</ng-template>
         </div>
       </div>
-      <div class="col-md-8 a">
+      <div class="col-md-6">
         <label for="inputPassword4" class="form-label text-white">NOM</label>
         <input type="text" formControlName="nom" class="form-control"  placeholder="NOM"
         [ngClass]="{ 'is-invalid': submitted && registerForm.controls['nom'].errors }" />
         <div *ngIf="submitted &&  registerForm.controls['nom'].errors" class="text-danger">
-        <div *ngIf=" registerForm.controls['nom'].errors['required']">Ce champ est requis</div>
-        </div>
-      </div>
+          <div *ngIf="registerForm.controls['nom'].errors['required'];then content else other_content">here is ignored</div>
+          <ng-template #content>Ce champ est requis</ng-template>
+          <ng-template #other_content>invalide</ng-template>
+          </div>
+         </div>
       <div class="col-8 a">
         <label for="inputAddress" class="form-label text-white">EMAIL</label>
         <input type="text" formControlName="email" class="form-control"  placeholder="EMAIL"
