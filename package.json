@@ -21,6 +21,7 @@
     "boostrap": "^2.0.0",
     "bootstrap": "^5.2.3",
     "ngx-pagination": "^6.0.3",
+    "nodemon": "^2.0.20",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.6.16",
     "tslib": "^2.3.0",
