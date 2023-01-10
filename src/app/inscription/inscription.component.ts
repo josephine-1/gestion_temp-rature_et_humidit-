@@ -99,10 +99,12 @@ this.getAllData()
 
    onSubmit() {
        this.submitted = true;
+      
 
        // arrêtez-vous ici si le formulaire est invalide
        if (this.registerForm.invalid) {
-           return;
+           return ;
+           
        }
 
        for (const iterator of this.users) {
@@ -115,19 +117,19 @@ this.getAllData()
       this.authService.signUp(this.registerForm.value).subscribe((res) => {
         console.log(res.errors.error.email.message);
         if (res.result) {
-          this.registerForm.reset();
           alert("Inscription réussie hoooww!!!")
           this.router.navigate(['connexion']);
         }
         else if((res.error)){
           this.mailExiste = "Email existe déja";
-          
+         
           
           
         }
       });
 
        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+       this.registerForm.reset();
    }
 
 }
