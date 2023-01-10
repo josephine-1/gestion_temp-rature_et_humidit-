@@ -1,44 +1,44 @@
 
   <div class="login">
-    
+
     <div class="tiret">
         <img src="../../assets/image 8.png" alt="" srcset="">
         <h1 style="text-align:center">Gestion de la temperature de l'humidité</h1>
         <img src="../../assets/image 9.png" alt="" srcset="">
     </div><br>
-        
+
     <h2 class="login-header">Connexion</h2>
     <form [formGroup]="loginForm" class="login-container" (ngSubmit)="seConnecter()">
-    <div class="contient">    
+    <div class="contient">
       <p [ngClass]="{ 'has-error': isSubmitted && formControls['email'].errors }">
         <label for="email">Email</label>
-        <input type="email" placeholder="Votre email" formControlName="email">
+        <input type="email" placeholder="Votre email" formControlName="email"  [ngClass]="{ 'is-invalid': isSubmitted && loginForm.controls['email'].errors }">
       </p>
     </div>
     <div class="contient">
         <div *ngIf="isSubmitted && formControls['email'].errors" class="help-block">
-            <div *ngIf="formControls['email'].errors['required'] || formControls['email'].invalid"><font color="red">L'email invalide est requis</font></div>
-           <!--  <div *ngIf="formControls['email'].invalid "><font color="red">Le format email est incorrecte</font></div> -->
+            <div *ngIf="formControls['email'].errors['required'] || formControls['email'].invalid"><font color="red">ce champ est  requis</font></div>
+            <div *ngIf="formControls['email'].errors['pattern'] "><font color="red">Le format email est incorrecte</font></div>
         </div>
     </div>
-    
-    <div class="contient"> 
+
+    <div class="contient">
       <p [ngClass]="{ 'has-error': isSubmitted && formControls['password'].errors }">
         <label for="password">Mot de passe</label>
         <input type="password" placeholder="Votre mot de passe" formControlName="password">
       </p>
     </div>
-    <div class="contient"> 
+    <div class="contient">
         <div *ngIf="isSubmitted && formControls['password'].errors" class="help-block">
            <div *ngIf="formControls['password'].errors['required']"><font color="red">Mot de passe requis</font></div>
         </div>
     </div> <br>
-   
+
         <div class="centre">
             <input type="submit" value="Connecter">
           </div>
-   
-      
-      
+
+
+
     </form>
   </div>
