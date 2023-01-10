@@ -30,6 +30,8 @@
 <div *ngIf="etat != 0" class="container mt-5 ">
   <h2 class="text-center text-white">Listes des utilisateurs</h2>
 
+
+  
   <div class="row ">
    <div class="search-hero rec">
       <input class=" rech" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Recherche par Nom, Prenom, Email">
@@ -48,12 +50,12 @@
           </tr>
       </thead>
       <tbody >
-        <tr *ngFor="let user of Users">
-          <td><strong>{{ user.Prenom }}</strong></td>
-          <td><strong>{{ user.Nom }}</strong></td>
-          <td><strong>{{ user.Matricule }}</strong></td>
-          <td><strong>{{ user.Email }}</strong></td>
-          <td><strong>{{ user.Date_inscription }}</strong></td>
+        <tr *ngFor="let users of User">
+          <td><strong>{{ users.prenom }}</strong></td>
+          <td><strong>{{ users.nom }}</strong></td>
+          <td><strong>{{ users.matricule }}</strong></td>
+          <td><strong>{{ users.email }}</strong></td>
+          <td><strong>{{ users.date_inscription }}</strong></td>
         </tr>
       </tbody>
     </table>
