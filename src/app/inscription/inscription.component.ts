@@ -105,7 +105,27 @@ this.getAllData()
            return;
        }
 
-      
+       for (const iterator of this.users) {
+     
+        if(iterator.email == this.registerForm.value.email)
+           { this.mailExiste = "Email existe déja";
+            console.log(this.mailExiste);
+            return;}
+      }
+      this.authService.signUp(this.registerForm.value).subscribe((res) => {
+        console.log(res.errors.error.email.message);
+        if (res.result) {
+          this.registerForm.reset();
+          alert("Inscription réussie hoooww!!!")
+          this.router.navigate(['connexion']);
+        }
+        else if((res.error)){
+          this.mailExiste = "Email existe déja";
+          
+          
+          
+        }
+      });
 
        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
    }

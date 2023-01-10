@@ -36,15 +36,15 @@
         <div *ngIf=" registerForm.controls['email'].errors['pattern']">Format Mail incorrect</div>
       </div>      </div>
       <div class="col-md-6">
-        <label for="inputState" class="form-label text-white">role</label>
-        <select id="role" name="role" class="form-select ">
+        <label for="inputState" class="form-label text-white" >role</label>
+        <select id="role" name="role" class="form-select " formControlName="role">
           <option selected></option>
           <option name="role">administrateur</option>
           <option name="role">user_simple</option>
         </select>
-        <!-- <div *ngIf="submitted &&  registerForm.controls['role'].errors" class="text-danger">
+        <div *ngIf="submitted &&  registerForm.controls['role'].errors" class="text-danger">
           <div *ngIf=" registerForm.controls['role'].errors['required']">Ce champ est requis</div>
-          </div> -->
+          </div>
       </div>
 
       <div class="col-6">
