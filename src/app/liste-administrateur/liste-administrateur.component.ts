@@ -37,7 +37,6 @@ export class ListeAdministrateurComponent implements OnInit {
  import { Component,OnInit } from '@angular/core';
 import UsersJson from '../users.json';
 import { AuthService } from '../shared/auth.service';
-import { CrudService } from '../services/inscription.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; /* recherche */
 
 interface USERS {
