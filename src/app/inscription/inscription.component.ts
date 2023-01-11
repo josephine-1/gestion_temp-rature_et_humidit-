@@ -132,7 +132,7 @@ this.getAllData()
       });
 
        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
-       this.registerForm.reset();
+      //  this.registerForm.reset();
 
    }
 
