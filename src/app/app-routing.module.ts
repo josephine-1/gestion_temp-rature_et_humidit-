@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'connexion', component: LoginComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'listeArchive', component: ListArchivesComponent},
-  { path: 'modifier', component: ModifierComponent},
+  { path: 'modifier/:id', component: ModifierComponent},
   { path: 'listeAdmin', component: ListeAdministrateurComponent},
   { path: 'inscription', component: InscriptionComponent},
   { path: 'pageUser', component: PageUserComponent},
