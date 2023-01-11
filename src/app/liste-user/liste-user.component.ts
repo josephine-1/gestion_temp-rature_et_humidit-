@@ -22,18 +22,19 @@ export class ListeUserComponent implements OnInit{
   constructor() {
     console.log(this.Users);
   } */
-  p:number=1;
+  pages:number=1;
   searchText!:string;
-  Users: USERS[] = UsersJson;
+ /*  Users: USERS[] = UsersJson; */
+ User: any = [];
+ data:any;
 
   prenom!:any;
   nom!:any;
   matricule!:any
   etat:any = localStorage.getItem('token');
-  User: any = [];
-  data:any;
+  
   constructor(public AuthService: AuthService){
-    console.log(this.Users);
+  /*   console.log(this.Users); */
   }
   ngOnInit(): void {
     this.AuthService.getAllUser().subscribe((res) => {
