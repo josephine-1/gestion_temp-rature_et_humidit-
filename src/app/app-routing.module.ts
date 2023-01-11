@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'listeUser', component: ListeUserComponent},
   { path:  "off", component: DashbordComponent},
   { path: 'on', component: DashbordOnComponent},
+  // { path: 'user-profile/:id', component: PageAdminComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

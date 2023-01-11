@@ -1,20 +1,13 @@
-/* import { Component } from '@angular/core';
 
-@Component({
-  selector: 'app-list-archives',
-  templateUrl: './list-archives.component.html',
-  styleUrls: ['./list-archives.component.scss']
-})
-export class ListArchivesComponent {
+import { Component, NgZone, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';import UsersJson from '../users.json';
+import { AuthService } from '../shared/auth.service';
 
-}
- */
-import { Component,OnInit } from '@angular/core';
-import UsersJson from '../users.json';
 
 
 interface USERS {
-  
+
   Nom: String;
   Prenom: String;
   Matricule: String;
@@ -29,31 +22,48 @@ interface USERS {
 })
 export class ListArchivesComponent implements OnInit{
 
-  p:number=1;
-  searchText!:string;
-  Users: USERS[] = UsersJson;
+  /* liste fiective à remplacer Books par []  pour les données rééels*/
 
-  prenom!:any;
-  nom!:any;
-  matricule!:any
-  etat:any = localStorage.getItem('token');
+ pages: number = 1;
+ searchText:any; // search installer npm i ng2-search-filter
 
-  constructor(){
-    console.log(this.Users);
-  }
-  ngOnInit(): void {
-    this.prenom = localStorage.getItem('prenom');
-    this.nom = localStorage.getItem('nom');
-    this.matricule = localStorage.getItem('matricule');
-  }
-  deconnexion()
-  {
-   
-    localStorage.removeItem('token');
-    localStorage.removeItem('id');
-    localStorage.removeItem('prenom');
-    localStorage.removeItem('nom');
-    localStorage.removeItem('matricule');
-  }
+ User: any = [];
+ data:any;
+  ngZone: any;
+  router: any;
+
+ deconnect(){
+  Swal.fire({
+    title: 'Déconnexion',
+    text: 'Êtes-vous sûre de vouloir vous déconnecter ?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'OUI',
+    cancelButtonText: 'NON',
+  }).then((result) => {
+      if (result.value) {
+        // this.ngZone.run(() => this.router.navigateByUrl('/'));
+        this.logout();
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        (result.dismiss === Swal.DismissReason.cancel)
+      }
+  })
 }
+
+ constructor(public AuthService: AuthService) {}
+
+ ngOnInit(): void {
+   this.AuthService.getAllUser().subscribe((res) => {
+     console.log(res);
+     this.data = res;
+     this.User = this.data.filter((e: any) => e.etat == false );
+   });
+ }
  
+ logout(){
+  this.AuthService.doLogout();
+}
+
+}
+
+

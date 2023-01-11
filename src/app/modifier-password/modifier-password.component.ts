@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //ici j'importe des proprietés de angular liées a l'utilisation des formulaire
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-modifier-password',
   templateUrl: './modifier-password.component.html',
