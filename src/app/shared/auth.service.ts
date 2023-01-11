@@ -25,12 +25,12 @@ export class AuthService {
   // Sign-in
   signIn(user: User) {
     return this.http
-      .post<User>(`${this.endpoint}/signin`, user)   
+      .post<User>(`${this.endpoint}/signin`, user)
   }
 
   update(user: User) {
     return this.http
-      .post<User>(`${this.endpoint}/update-user`, user)   
+      .post<User>(`${this.endpoint}/update-user`, user)
   }
 
   getToken() {
@@ -39,7 +39,7 @@ export class AuthService {
   getId() {
     return localStorage.getItem('id');
   }
-  
+
 
   getUser(user: User) {
     return this.http.post<User>(`${this.endpoint}/signin`, user)
@@ -53,7 +53,7 @@ export class AuthService {
   doLogout() {
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
-      this.router.navigate(['cpt3']);
+      this.router.navigate(['/']);
     }
   }
 

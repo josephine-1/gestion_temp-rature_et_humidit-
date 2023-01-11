@@ -5,6 +5,7 @@ import { Utilisateur } from './utilisateur';
   providedIn: 'root'
 })
 export class AuthService {
+  isLoggedIn: boolean | undefined;
   constructor() { }
   public seConnecter(userInfo: Utilisateur){
     localStorage.setItem('ACCESS_TOKEN', "access_token");
