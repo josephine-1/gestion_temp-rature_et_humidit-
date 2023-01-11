@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'modifierPassword', component: ModifierPasswordComponent},
   { path: 'modifierProfil', component: ModifierProfilComponent},
   { path: 'pageAdmin' , component: PageAdminComponent},
-  { path: 'profil' , component:ProfilComponent},
+  { path: 'profil/:id' , component:ProfilComponent},
   { path: 'listeUser', component: ListeUserComponent},
   { path:  "off", component: DashbordComponent},
   { path: 'on', component: DashbordOnComponent},

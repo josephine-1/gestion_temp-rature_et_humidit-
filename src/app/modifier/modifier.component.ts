@@ -13,7 +13,6 @@ import { FormControl } from '@angular/forms';
 export class ModifierComponent implements OnInit {
   mailExiste:string='';
   succes:string='Modifier avec succes';
-  submitted: Boolean= false
   getId: any;
   updateForm: FormGroup;
   registerForm!: FormGroup<any>;
@@ -61,8 +60,6 @@ export class ModifierComponent implements OnInit {
   }
 
    onUpdate(): any {
-
-    
     this.AuthService.update(this.getId, this.updateForm.value).subscribe(
       () => {
         alert(this.succes),
@@ -74,7 +71,6 @@ export class ModifierComponent implements OnInit {
     );
   } 
 
-  
 }
 export function  noWhitespaceValidator(control: FormControl) {
   const isWhitespace = (control.value || '').trim().length === 0;
