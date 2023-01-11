@@ -14,7 +14,8 @@ export class AuthService {
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
 
-  constructor(private http: HttpClient, public router: Router) {}
+  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+  constructor(private http: HttpClient, public router: Router, private httpClient: HttpClient ) {}
 
   // Sign-up
   signUp(user: User): Observable<any> {
@@ -33,6 +34,16 @@ export class AuthService {
       .put<User>(`${this.endpoint}/update-user/${id}`, user)   
   }
 
+  getUserById(id: any): Observable<any> {
+    let API_URL = `${this.endpoint}/read-user/${id}`;
+    return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
+      map((res: any) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
+  }
+  
   getToken() {
     return localStorage.getItem('access_token');
   }

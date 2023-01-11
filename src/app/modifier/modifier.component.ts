@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 //import { CrudService } from './../services/inscription.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { AuthService } from '../shared/auth.service';
 @Component({
   selector: 'app-modifier',
   templateUrl: './modifier.component.html',
@@ -20,45 +21,45 @@ export class ModifierComponent implements OnInit {
     private router: Router,
     private ngZone: NgZone,
     private activatedRoute: ActivatedRoute,
-   // private crudService: CrudService
+    public AuthService: AuthService
   ) {
 
     this.updateForm = this.formBuilder.group({
-      firstName: [''],
-      lastName: [''],
+      prenom: [''],
+      nom: [''],
       email: [''],
 
       
     });
 
-/*     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
+     this.getId = this.activatedRoute.snapshot.paramMap.get('id');
 
-    this.crudService.GetBook(this.getId).subscribe((res) => {
+    this.AuthService.getUserById(this.getId).subscribe((res) => {
       this.updateForm.setValue({
-        firstName: res['firstName'],
-        lastName: res['lastName'],
+        prenom: res['prenom'],
+        nom: res['nom'],
         email: res['email'],
       });
-    }); */
+    }); 
 
     this.updateForm = this.formBuilder.group({
-      firstName: [''],
-      lastName: [''],
+      prenom: [''],
+      nom: [''],
       email: [''],
     });
   }
 
   ngOnInit(): void {
     this.updateForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      prenom: ['', Validators.required],
+      nom: ['', Validators.required],
       email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
 
     });
   }
 
-/*   onUpdate(): any {
-    this.crudService.updateBook(this.getId, this.updateForm.value).subscribe(
+   onUpdate(): any {
+    this.AuthService.update(this.getId, this.updateForm.value).subscribe(
       () => {
         alert(this.succes),
         this.ngZone.run(() => this.router.navigateByUrl('/cpt1'));
@@ -67,6 +68,6 @@ export class ModifierComponent implements OnInit {
         this.mailExiste = "Email existe déja";
       }
     );
-  } */
+  } 
 
 }
