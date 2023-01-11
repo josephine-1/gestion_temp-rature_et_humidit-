@@ -1,7 +1,7 @@
 <div class="back">
     <div class="col-md-4">
       <h1>Formulaire de modification</h1><br><br>
-    
+
       <form [formGroup]="updateForm"> <!-- (ngSubmit)="onUpdate()" -->
         <span class="alert-danger danger"  *ngIf="mailExiste != '' && mailExiste != undefined"> mail existe déja </span>
         <div class="form-group">
@@ -26,4 +26,3 @@
       </form>
     </div>
   </div>
-  

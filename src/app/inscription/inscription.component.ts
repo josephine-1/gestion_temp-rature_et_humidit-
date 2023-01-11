@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //ici j'importe des proprietés de angular liées a l'utilisation des formulaire
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { AuthService } from './.././shared/auth.service';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
@@ -32,7 +33,7 @@ constructor(private formBuilder: FormBuilder,
       etat: [true],
       matricule: [Date.now()],
       date_inscription:[ new Date ]
-      
+
     });
 
 }
@@ -46,7 +47,7 @@ ngOnInit(): void{
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required],
     etat: [true],
-    matricule: [Date.now()], 
+    matricule: [Date.now()],
     date_inscription:[ new Date ]
 
 
@@ -99,12 +100,12 @@ this.getAllData()
 
    onSubmit() {
        this.submitted = true;
-      
+
 
        // arrêtez-vous ici si le formulaire est invalide
        if (this.registerForm.invalid) {
            return ;
-           
+
        }
 
        for (const iterator of this.users) {
@@ -124,13 +125,15 @@ this.getAllData()
         }
         else if((res.error)){
           this.mailExiste = "Email existe déja";
-          
-          
-          
+
+
+
         }
       });
 
        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+       this.registerForm.reset();
+
    }
 
 }

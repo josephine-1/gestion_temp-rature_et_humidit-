@@ -4,11 +4,16 @@
     background-repeat: no-repeat;
     min-height: 100vh;
 
-   
+
 }
-    
+
 th, td{
     color: #fff;
+}
+.head{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 input{
     background: #000;
