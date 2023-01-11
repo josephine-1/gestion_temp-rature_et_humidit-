@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import UsersJson from '../users.json';
+import { AuthService } from '../shared/auth.service';
 
 
 interface USERS {
@@ -21,23 +22,30 @@ export class ListeUserComponent implements OnInit{
   constructor() {
     console.log(this.Users);
   } */
-  p:number=1;
+  pages:number=1;
   searchText!:string;
-  Users: USERS[] = UsersJson;
+ /*  Users: USERS[] = UsersJson; */
+ User: any = [];
+ data:any;
 
   prenom!:any;
   nom!:any;
   matricule!:any
   etat:any = localStorage.getItem('token');
-
-  constructor(){
-    console.log(this.Users);
+  
+  constructor(public AuthService: AuthService){
+  /*   console.log(this.Users); */
   }
   ngOnInit(): void {
-    this.prenom = localStorage.getItem('prenom');
-    this.nom = localStorage.getItem('nom');
-    this.matricule = localStorage.getItem('matricule');
+    this.AuthService.getAllUser().subscribe((res) => {
+      console.log(res);
+      this.data = res;
+      this.User = this.data.filter((e: any) => e.etat == true );
+
+    });
   }
+  
+ 
   deconnexion()
   {
     // Effacer tous les éléments

@@ -1,4 +1,4 @@
-<nav *ngIf="etat != 0"  class="navbar navbar-expand-lg colorNav bg-dark">
+<nav *ngIf="etat != true"  class="navbar navbar-expand-lg colorNav bg-dark">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -27,9 +27,11 @@
   </div>
 </nav>
 <!-- navbarre en haut -->
-<div *ngIf="etat != 0" class="container mt-5 ">
+<div *ngIf="etat != true" class="container mt-5 ">
   <h2 class="text-center text-white">Listes des utilisateurs</h2>
 
+
+  
   <div class="row ">
    <div class="search-hero rec">
       <input class=" rech" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Recherche par Nom, Prenom, Email">
@@ -48,15 +50,18 @@
           </tr>
       </thead>
       <tbody >
-        <tr *ngFor="let user of Users">
-          <td><strong>{{ user.Prenom }}</strong></td>
-          <td><strong>{{ user.Nom }}</strong></td>
-          <td><strong>{{ user.Matricule }}</strong></td>
-          <td><strong>{{ user.Email }}</strong></td>
-          <td><strong>{{ user.Date_inscription }}</strong></td>
+        <tr *ngFor="let users of User | filter:searchText | paginate: { itemsPerPage: 5, currentPage: pages }">
+          <td><strong>{{ users.prenom }}</strong></td>
+          <td><strong>{{ users.nom }}</strong></td>
+          <td><strong>{{ users.matricule }}</strong></td>
+          <td><strong>{{ users.email }}</strong></td>
+          <td><strong>{{ users.date_inscription }}</strong></td>
         </tr>
       </tbody>
     </table>
+    <div class="pagination">
+      <pagination-controls  (pageChange)="pages = $event"></pagination-controls>
+    </div>
   </div>
 <!-- </div>  -->
 <!-- <pagination-controls (pageChange)="p=$event" class="text-center"></pagination-controls> -->

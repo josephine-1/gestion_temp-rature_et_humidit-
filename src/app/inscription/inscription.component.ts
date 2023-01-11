@@ -48,7 +48,7 @@ ngOnInit(): void{
     confirmPassword: ['', Validators.required],
     etat: [true],
     matricule: [Date.now()], 
-    date_inscription:[new Date]
+    date_inscription:[ new Date ]
 
 
   }, {
@@ -72,7 +72,7 @@ this.getAllData()
   registerUser() {
 
     for (const iterator of this.users) {
-     
+
       if(iterator.email == this.registerForm.value.email)
          { this.mailExiste = "Email existe déja";
           console.log(this.mailExiste);
@@ -85,37 +85,41 @@ this.getAllData()
         alert("Inscription réussie hoooww!!!")
         this.router.navigate(['connexion']);
       }
-      else if((res.error)){
+      else if(res.error){
+        console.log(res.error);
         this.mailExiste = "Email existe déja";
-        
-        
-        
+
+
+
       }
     });
   }
-  
+
    // la fonction getter est utiliser pour un accès facile aux champs de formulaire
    get f() { return this.registerForm.controls; }
 
    onSubmit() {
        this.submitted = true;
+      
 
        // arrêtez-vous ici si le formulaire est invalide
        if (this.registerForm.invalid) {
-           return;
+           return ;
+           
        }
 
        for (const iterator of this.users) {
-     
+
         if(iterator.email == this.registerForm.value.email)
            { this.mailExiste = "Email existe déja";
+            // alert ("Email existant");
+            this.registerForm.reset()
             console.log(this.mailExiste);
             return;}
       }
       this.authService.signUp(this.registerForm.value).subscribe((res) => {
         console.log(res.errors.error.email.message);
         if (res.result) {
-          this.registerForm.reset();
           alert("Inscription réussie hoooww!!!")
           this.router.navigate(['connexion']);
         }
