@@ -4,7 +4,6 @@
  import { Component,OnInit } from '@angular/core';
 import UsersJson from '../users.json';
 import { AuthService } from '../shared/auth.service';
-import { CrudService } from '../services/inscription.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; /* recherche */
 
 interface USERS {
@@ -65,15 +64,26 @@ export class ListeAdministrateurComponent implements OnInit{
       });
     }
   } */
-//  changeRole = (id: any, role: any) => {
-  //  role = role == 'administrateur' ? 'user_simple' : 'administrateur'; /* pour switche */
- /*    const user = { profil: role };
+  /* switcher */
+  changeRole = (id: any, role: any) => {
+    role == 'administrateur' ? role ='utilisateur_simple' : role= 'administrateur'; /* pour switche */
+     const users = { role: role };
     if (confirm('Changer de role')) {
-      this.AuthService.change_role(id, user).subscribe((data) => {
+      this.AuthService.update(id, users).subscribe((data) => {
         this.ngOnInit();
       });
     }
-  }; */
+  }; 
+/* pour archiver */
+  changeEtat = (id: any, etat: any) => {
+    etat == true ? etat = false : etat= true; /* pour archiver */
+     const users = { etat: etat };
+    if (confirm('Voulez vous archiver ?')) {
+      this.AuthService.update(id, users).subscribe((data) => {
+        this.ngOnInit();
+      });
+    }
+  }; 
 
  // changeRole2 = (id: any, etat: any) => {
    // etat = etat == true ? false : true; /* pour archiver */

@@ -11,6 +11,7 @@ export class ListArchivesComponent {
  */
 import { Component,OnInit } from '@angular/core';
 import UsersJson from '../users.json';
+import { AuthService} from '../shared/auth.service'
 
 
 interface USERS {
@@ -38,7 +39,7 @@ export class ListArchivesComponent implements OnInit{
   matricule!:any
   etat:any = localStorage.getItem('token');
 
-  constructor(){
+  constructor( public AuthService: AuthService){
     console.log(this.Users);
   }
   ngOnInit(): void {
@@ -55,5 +56,16 @@ export class ListArchivesComponent implements OnInit{
     localStorage.removeItem('nom');
     localStorage.removeItem('matricule');
   }
+
+  changeEtat = (id: any, etat: any) => {
+    etat == false ? etat = true : etat= false; /* pour switche */
+     const users = { etat: etat };
+    if (confirm('Voulez vous désarchiver ?')) {
+      this.AuthService.update(id, users).subscribe((data) => {
+        this.ngOnInit();
+      });
+    }
+  }; 
+
 }
  

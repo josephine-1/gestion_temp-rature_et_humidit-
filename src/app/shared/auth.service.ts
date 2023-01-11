@@ -28,9 +28,9 @@ export class AuthService {
       .post<User>(`${this.endpoint}/signin`, user)   
   }
 
-  update(user: User) {
+  update(id: any , user: User) {
     return this.http
-      .post<User>(`${this.endpoint}/update-user`, user)   
+      .put<User>(`${this.endpoint}/update-user/${id}`, user)   
   }
 
   getToken() {
@@ -53,7 +53,7 @@ export class AuthService {
   doLogout() {
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
-      this.router.navigate(['cpt3']);
+      this.router.navigate(['']);
     }
   }
 

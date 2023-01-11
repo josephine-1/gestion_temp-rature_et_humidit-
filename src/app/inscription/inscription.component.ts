@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //ici j'importe des proprietés de angular liées a l'utilisation des formulaire
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CrudService } from '../services/inscription.service';
 import { AuthService } from './.././shared/auth.service';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
