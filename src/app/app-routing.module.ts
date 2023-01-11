@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
-import { AuthGuard } from './auth.guard';
 import { ListArchivesComponent } from './list-archives/list-archives.component';
 import { ModifierComponent } from './modifier/modifier.component';
 import { ListeAdministrateurComponent } from './liste-administrateur/liste-administrateur.component';
@@ -21,12 +20,12 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'listeArchive', component: ListArchivesComponent},
   { path: 'modifier/:id', component: ModifierComponent},
-  { path: 'listeAdmin', component: ListeAdministrateurComponent},
+  { path: 'listeAdmin', component: ListeAdministrateurComponent,},
   { path: 'inscription', component: InscriptionComponent},
   { path: 'pageUser', component: PageUserComponent},
   { path: 'modifierPassword', component: ModifierPasswordComponent},
   { path: 'modifierProfil', component: ModifierProfilComponent},
-  { path: 'pageAdmin' , component: PageAdminComponent},
+  { path: 'pageAdmin' , component: PageAdminComponent,},
   { path: 'profil' , component:ProfilComponent},
   { path: 'listeUser', component: ListeUserComponent},
   { path:  "off", component: DashbordComponent},

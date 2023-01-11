@@ -27,6 +27,7 @@ export class PageAdminComponent implements OnInit {
 
     })
   }
+  
   deconnect(){
     Swal.fire({
       title: 'Déconnexion',

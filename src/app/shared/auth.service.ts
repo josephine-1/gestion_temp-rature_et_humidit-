@@ -31,7 +31,7 @@ export class AuthService {
 
   update(id: any , user: User) {
     return this.http
-      .put<User>(`${this.endpoint}/update-user/${id}`, user)   
+      .put<User>(`${this.endpoint}/update-user/${id}`, user)
   }
 
   getUserById(id: any): Observable<any> {
@@ -43,7 +43,7 @@ export class AuthService {
       catchError(this.handleError)
     );
   }
-  
+
   getToken() {
     return localStorage.getItem('access_token');
   }
@@ -64,7 +64,7 @@ export class AuthService {
   doLogout() {
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
-      this.router.navigate(['cpt3']);
+      this.router.navigate(['/']);
     }
   }
 

@@ -1,10 +1,12 @@
-import { Component,OnInit } from '@angular/core';
-import UsersJson from '../users.json';
+
+import { Component, NgZone, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';import UsersJson from '../users.json';
 import { AuthService } from '../shared/auth.service';
 
 
 interface USERS {
-  
+
   Nom: String;
   Prenom: String;
   Matricule: String;
@@ -32,7 +34,7 @@ export class ListeUserComponent implements OnInit{
   nom!:any;
   matricule!:any
   etat:any = localStorage.getItem('token');
-  
+
   constructor(public AuthService: AuthService){
   /*   console.log(this.Users); */
   }
@@ -44,15 +46,37 @@ export class ListeUserComponent implements OnInit{
 
     });
   }
-  
- 
-  deconnexion()
-  {
-    // Effacer tous les éléments
-    localStorage.removeItem('token');
-    localStorage.removeItem('id');
-    localStorage.removeItem('prenom');
-    localStorage.removeItem('nom');
-    localStorage.removeItem('matricule');
+  deconnect(){
+    Swal.fire({
+      title: 'Déconnexion',
+      text: 'Êtes-vous sûre de vouloir vous déconnecter ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'OUI',
+      cancelButtonText: 'NON',
+    }).then((result) => {
+        if (result.value) {
+          // this.ngZone.run(() => this.router.navigateByUrl('/'));
+          this.logout();
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          (result.dismiss === Swal.DismissReason.cancel)
+        }
+    })
   }
+
+  logout(){
+    this.AuthService.doLogout();
+  }
+
+
+
+  // deconnexion()
+  // {
+  //   // Effacer tous les éléments
+  //   localStorage.removeItem('token');
+  //   localStorage.removeItem('id');
+  //   localStorage.removeItem('prenom');
+  //   localStorage.removeItem('nom');
+  //   localStorage.removeItem('matricule');
+  // }
 }
