@@ -2,6 +2,7 @@
   <div class="container col-md-6" style=" border-radius:10px">
     <form method="POST" class="row g-3" id="loginform" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <span *ngIf="mailExiste != '' && mailExiste != undefined" class="alert alert-danger "> mail existe déja </span>
+      
       <div>
         <h2 class="text-center mt-5 text-white" id="titre">FORMULAIRE MODIFICATION PROFIL</h2>
       </div>
@@ -40,7 +41,7 @@
       <br>
       <div class="form-group pied">
         <button class="btn btn-primary btn-block noir" type="submit">Modifier</button>
-        <button class=" btn btn-primary noir" routerLink="/pageUser">Retour</button>
+        <button class=" btn btn-primary noir" routerLink="/listeAdmin">Retour</button>
       </div>
     </form>
   </div>

@@ -86,7 +86,7 @@ export class ProfilComponent implements OnInit{
           );
         
 
-         alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+        // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
      }
 
   }
