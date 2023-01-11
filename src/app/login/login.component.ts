@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 signinForm: FormGroup;
+  res: any;
+  msg!: string;
 
 constructor(
   public fb: FormBuilder,
@@ -38,15 +40,17 @@ constructor(
           localStorage.setItem("id",res.msg._id)
           console.log(res.msg)
           if(res.msg.etat==true){
-            if(res.msg.profil=="administrateur"){
+            if(res.msg.role=="administrateur"){
               this.router.navigateByUrl("pageAdmin");
             }
-            else{
-              this.router.navigateByUrl("pageAdmin");
+            if(res.msg.role=="utilisateur_simple"){
+              this.router.navigateByUrl("/pageUser");
             }
           }
           else{
-            alert("User supprimer !")
+            this.msg="compte archivé";
+            this.signinForm.reset()
+
           }
           // this.router.navigate(['cpt2/' + res.msg._id]);
         });

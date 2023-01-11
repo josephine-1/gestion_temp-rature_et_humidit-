@@ -125,7 +125,6 @@ this.getAllData()
         else if((res.error)){
           this.mailExiste = "Email existe déja";
 
-
         }
       });
 
