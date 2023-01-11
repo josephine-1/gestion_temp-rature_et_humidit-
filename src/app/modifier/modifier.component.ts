@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-modifier',
   templateUrl: './modifier.component.html',
@@ -12,6 +13,7 @@ import { AuthService } from '../shared/auth.service';
 export class ModifierComponent implements OnInit {
   mailExiste:string='';
   succes:string='Modifier avec succes';
+  submitted: Boolean= false
   getId: any;
   updateForm: FormGroup;
   registerForm!: FormGroup<any>;
@@ -59,6 +61,8 @@ export class ModifierComponent implements OnInit {
   }
 
    onUpdate(): any {
+
+    
     this.AuthService.update(this.getId, this.updateForm.value).subscribe(
       () => {
         alert(this.succes),
@@ -70,4 +74,10 @@ export class ModifierComponent implements OnInit {
     );
   } 
 
+  
+}
+export function  noWhitespaceValidator(control: FormControl) {
+  const isWhitespace = (control.value || '').trim().length === 0;
+  const isValid = !isWhitespace;
+  return isValid ? null : { 'whitespace': true };
 }

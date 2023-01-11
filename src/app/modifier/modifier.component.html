@@ -6,8 +6,14 @@
         <span class="alert-danger danger"  *ngIf="mailExiste != '' && mailExiste != undefined"> mail existe déja </span>
         <div class="form-group">
           <label>Prenom</label>
-          <input class="form-control" type="text" formControlName="prenom" required/>
-          <div class="alert-danger danger " *ngIf="updateForm.controls['prenom'].invalid && updateForm.controls['prenom'].touched"> Champs obligatoire</div>
+          <input type="text" formControlName="prenom" class="form-control"  placeholder="PRENOM"
+        [ngClass]="{ 'is-invalid': submitted && registerForm.controls['prenom'].errors }" />
+        <div *ngIf="submitted &&  registerForm.controls['prenom'].errors" class="text-danger">
+        <div *ngIf="updateForm.controls['prenom'].invalid;then content else other_content">here is ignored</div>
+        <ng-template #content>Ce champ est requis</ng-template>
+        <ng-template #other_content>invalide</ng-template>
+        </div>
+
         </div><br>
         <div class="form-group">
           <label>Nom</label>
@@ -16,7 +22,7 @@
         </div><br>
         <div class="form-group">
         <label>Email</label>
-          <input class="form-control" type="email" formControlName="email" required/>
+          <input class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.controls['prenom'].errors }" type="email" formControlName="email" required/>
           <div class="alert-danger danger " *ngIf="updateForm.controls['email'].invalid && updateForm.controls['email'].touched"> Champs obligatoire</div>
         </div><br>
         <div class="form-group pied">
