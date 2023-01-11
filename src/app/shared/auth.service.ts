@@ -28,7 +28,7 @@ export class AuthService {
       .post<User>(`${this.endpoint}/signin`, user)   
   }
 
-  update(user: User) {
+  update(id : any , user: User) {
     return this.http
       .post<User>(`${this.endpoint}/update-user`, user)   
   }

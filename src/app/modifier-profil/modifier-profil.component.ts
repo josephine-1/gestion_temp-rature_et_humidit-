@@ -11,11 +11,11 @@ export class ModifierProfilComponent implements OnInit{
   submitted: Boolean= false
   //ici on gére le controle de saisit du formulaire
   ngOnInit(){
+    
     this.registerForm = this.formBuilder.group({
       prenom: ['', [Validators.required, noWhitespaceValidator]],
       nom: ['', [Validators.required, noWhitespaceValidator]],
       email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-
 
 
     })
@@ -29,6 +29,7 @@ export class ModifierProfilComponent implements OnInit{
      get f() { return this.registerForm.controls; }
 
      onSubmit() {
+      
          this.submitted = true;
 
          // arrêtez-vous ici si le formulaire est invalide
