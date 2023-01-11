@@ -48,11 +48,11 @@
           <tr *ngFor="let users of User | filter:searchText | paginate: { itemsPerPage: 5, currentPage: pages } ">
       <!-- <th scope="row">{{ book._id }}</th> -->
       <th scope="row">{{ users.prenom }}</th>
-      <td>{{ users.nom }}</td>
-      <td>{{ users.email }}</td>
+      <td align="center">{{ users.nom }}</td>
+      <td align="center">{{ users.email }}</td>
       <!-- <td>{{ book.tel }}</td> -->
-      <td>{{ users.matricule }}</td>
-      <td>{{ users.role }}</td>
+      <td align="center">{{ users.matricule }}</td>
+      <td align="center">{{ users.role }}</td>
 
       <td class="text-center">
         <a title="modifier" routerLink="/profil/{{ users._id }}" class="link-light btn btn-sm btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
