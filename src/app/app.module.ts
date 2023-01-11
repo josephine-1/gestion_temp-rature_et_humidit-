@@ -72,7 +72,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     RouterModule,
     HttpClientModule,
     NgxPaginationModule,
-     Ng2SearchPipeModule 
+    Ng2SearchPipeModule 
     
   
    
