@@ -2,26 +2,22 @@ body
 {
   background-image: url('../../assets/background.png');
   background-size: cover;
-  height: 576px;
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-size: cover;
+  min-height: 100vh;
 }
-#profil{
-  width: 40%;
-  height: 200px;
-  align-items: center;
-  border: 3px solid white;
-  border-radius: 10px;
-  margin-top: 50px;
+.pied{
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
 }
-.pro{
-  margin-left: 30%;
+.noir{
+  background-color: black;
+  color: #fff;
+  margin-left: 100px;
 }
-.tt{
-  margin-left: 35%;
-}
-.btn
-{
-  width: 50%;
+.a{
+  margin-left: 17%;
 }
