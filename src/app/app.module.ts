@@ -20,13 +20,9 @@ import { ListeUserComponent } from './liste-user/liste-user.component';
 import { PageUserComponent } from './page-user/page-user.component';
 import { ListeAdministrateurComponent } from './liste-administrateur/liste-administrateur.component';
 import { AuthInterceptor } from './shared/authconfig.interceptor';
-
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { DashbordOnComponent } from './dashbord-on/dashbord-on.component';
-
-
-
- import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PaginationComponent } from './pagination/pagination.component';
 /* import { HttpClient } from '@angular/common/http'; */
@@ -72,7 +68,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     RouterModule,
     HttpClientModule,
     NgxPaginationModule,
-     Ng2SearchPipeModule 
+    Ng2SearchPipeModule 
     
   
    
