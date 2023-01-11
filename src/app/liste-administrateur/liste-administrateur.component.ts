@@ -76,6 +76,7 @@ export class ListeAdministrateurComponent implements OnInit{
       });
     }
   } */
+  /* switcher */
   changeRole = (id: any, role: any) => {
     role == 'administrateur' ? role ='utilisateur_simple' : role= 'administrateur'; /* pour switche */
      const users = { role: role };
@@ -85,9 +86,9 @@ export class ListeAdministrateurComponent implements OnInit{
       });
     }
   }; 
-
+/* pour archiver */
   changeEtat = (id: any, etat: any) => {
-    etat == true ? etat = false : etat= true; /* pour switche */
+    etat == true ? etat = false : etat= true; /* pour archiver */
      const users = { etat: etat };
     if (confirm('Voulez vous archiver ?')) {
       this.AuthService.update(id, users).subscribe((data) => {

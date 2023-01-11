@@ -64,6 +64,18 @@ export class ListArchivesComponent implements OnInit{
   this.AuthService.doLogout();
 }
 
+/* pour désarchiver */
+desarchive = (id: any, etat: any) => {
+  etat == false ? etat = true : etat= false; 
+   const users = { etat: etat };
+  if (confirm('Voulez vous désarchiver ?')) {
+    this.AuthService.update(id, users).subscribe((data) => {
+      this.ngOnInit();
+    });
+  }
+}; 
+
+
 }
 
 
