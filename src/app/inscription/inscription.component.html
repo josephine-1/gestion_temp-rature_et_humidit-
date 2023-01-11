@@ -42,7 +42,7 @@
         <select id="role" name="role" class="form-select " formControlName="role">
           <option selected></option>
           <option name="role">administrateur</option>
-          <option name="role">user_simple</option>
+          <option name="role">utilisateur_simple</option>
         </select>
         <div *ngIf="submitted &&  registerForm.controls['role'].errors" class="text-danger">
           <div *ngIf=" registerForm.controls['role'].errors['required']">Ce champ est requis</div>
