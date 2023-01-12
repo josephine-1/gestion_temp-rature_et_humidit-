@@ -12,7 +12,7 @@ export class PageAdminComponent implements OnInit {
 
   currentUser: any = {};
   getItem: any = {};
-  
+
   constructor(private ngZone:NgZone,private router: Router,private activatedRoute: ActivatedRoute,
     private actRoute: ActivatedRoute,
     public authService: AuthService,
@@ -53,6 +53,13 @@ export class PageAdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let id = this.actRoute.snapshot.paramMap.get('id');
+    this.authService.getUserProfile(localStorage.getItem('id')).subscribe((res) => {
+      console.log(res)
+      this.currentUser = res.msg;
+      
+     
+    }); 
 
   }
 
@@ -63,16 +70,6 @@ export class PageAdminComponent implements OnInit {
     }
   }
 
-  ngOnInit1() {
-    
-   
-    let id = this.actRoute.snapshot.paramMap.get('id');
-    this.authService.getUserProfile(localStorage.getItem('id')).subscribe((res) => {
-      console.log(res)
-      this.currentUser = res.msg;
-      
-     
-    }); 
-  }
+
 
 }
