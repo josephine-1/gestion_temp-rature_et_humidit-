@@ -8,7 +8,7 @@
 </head>
 <body >
 
-    <div class="container col-md-8  p-3">
+    <div class="container col-md-8  p-3" *ngIf="!showForm">
 <!-- Start partie 1 -->
 <div class="container part1 " style="border: 3px solid white;border-radius: 15px ;">
             <div class=" row " >
@@ -34,7 +34,7 @@
             <img src="../../assets/iconeUser.png" alt="deconect"><a routerLink="/inscription">Ajouter Utilisateurs</a>
 
             <div><br>
-                <img src="../../assets/modUser.png" alt="deconect" (click)="choice()"><a>Modifier_profile</a>
+                <img src="../../assets/modUser.png" alt="deconect" ><a (click)="getData(this.currentUser.id, this.currentUser.prenom, this.currentUser.nom, this.currentUser.email)">Modifier_profile</a>
             </div><br>
             <div>
                 <img src="../../assets/listeUser.png" alt="deconect"><a routerLink="/listeAdmin">Liste Utilisateurs</a>
@@ -108,6 +108,53 @@
     </div>
 </div>
  <!-- End partie2 -->
+    </div>
+
+    <div class="container col-md-6" style=" border-radius:10px" *ngIf="showForm">
+      <form method="POST" class="row g-3" id="loginform" [formGroup]="registerForm" >
+        <span *ngIf="mailExiste != '' && mailExiste != undefined" class="alert alert-danger "> mail existe déja </span>
+        
+        <div>
+          <h2 class="text-center mt-5 text-white" id="titre">FORMULAIRE MODIFICATION PROFIL</h2>
+        </div>
+        <div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label text-white" >PRENOM</label>
+          <input type="text" formControlName="prenom" class="form-control"  placeholder="PRENOM"
+          [ngClass]="{ 'is-invalid': submitted && registerForm.controls['prenom'].errors }" />
+          <div *ngIf="submitted &&  registerForm.controls['prenom'].errors" class="text-danger">
+          <div *ngIf="registerForm.controls['prenom'].errors['required'];then content else other_content">here is ignored</div>
+          <ng-template #content>Ce champ est requis</ng-template>
+          <ng-template #other_content>invalide</ng-template>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label text-white">NOM</label>
+          <input type="text" formControlName="nom" class="form-control"  placeholder="NOM"
+          [ngClass]="{ 'is-invalid': submitted && registerForm.controls['nom'].errors }" />
+          <div *ngIf="submitted &&  registerForm.controls['nom'].errors" class="text-danger">
+            <div *ngIf="registerForm.controls['nom'].errors['required'];then content else other_content">here is ignored</div>
+            <ng-template #content>Ce champ est requis</ng-template>
+            <ng-template #other_content>invalide</ng-template>
+            </div>
+           </div>
+        <div class="col-8 a">
+          <label for="inputAddress" class="form-label text-white">EMAIL</label>
+          <input type="text" formControlName="email" class="form-control"  placeholder="EMAIL"
+          [ngClass]="{ 'is-invalid': submitted && registerForm.controls['email'].errors }" />
+          <div *ngIf="submitted &&  registerForm.controls['email'].errors" class="text-danger">
+          <div *ngIf=" registerForm.controls['email'].errors['required']">Ce champ est requis</div>
+          <div *ngIf=" registerForm.controls['email'].errors['pattern']">Format Mail incorrect</div>
+        </div>
+      </div>
+        <br>
+        <br>
+        <div class="form-group pied">
+          <button class="btn btn-primary btn-block noir" type="submit">Modifier</button>
+          <button class=" btn btn-primary noir" routerLink="/listeAdmin">Retour</button>
+        </div>
+      </form>
     </div>
 
 </body>
