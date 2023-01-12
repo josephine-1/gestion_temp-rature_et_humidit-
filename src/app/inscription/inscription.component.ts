@@ -126,7 +126,7 @@ export class InscriptionComponent implements OnInit {
     });
 
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
-    //  this.registerForm.reset();
+      this.registerForm.reset();
   }
 }
 //ici j'exporte la class MushMatch pour la gestion de mes mots de passes
