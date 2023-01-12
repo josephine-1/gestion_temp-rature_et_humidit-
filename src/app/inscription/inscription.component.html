@@ -5,10 +5,7 @@
         <h2 class="text-center mt-5 text-white" id="titre">FORMULAIRE D'INSCRIPTION</h2>
       </div>
 
-<!-- 
-      <div class="alert alert-danger" role="alert">
-          {{mailExiste}}
-      </div> -->
+
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label text-white" >PRENOM</label>
         <input type="text" formControlName="prenom" class="form-control"  placeholder="PRENOM"
@@ -37,7 +34,8 @@
         <div *ngIf="submitted &&  registerForm.controls['email'].errors" class="text-danger">
         <div *ngIf=" registerForm.controls['email'].errors['required']">Ce champ est requis</div>
         <div *ngIf=" registerForm.controls['email'].errors['pattern']">Format Mail incorrect</div>
-      </div>      </div>
+      </div>
+    </div>
       <div class="col-md-6">
         <label for="inputState" class="form-label text-white" >role</label>
         <select id="role" name="role" class="form-select " formControlName="role">
@@ -68,6 +66,7 @@
       <br>
       <div class="form-group pied">
         <button class="btn btn-primary btn-block noir" type="submit">Envoyer</button>
+        <p class="text-danger" id="message">{{mailExiste}}</p>
         <button class=" btn btn-primary noir" routerLink="/pageAdmin">Retour</button>
       </div>
     </form>

@@ -53,7 +53,7 @@ export class PageAdminComponent implements OnInit {
         this.router.navigate(['/']);
       }
       this.fullname = localStorage.getItem('fullname');
-    
+      this.getAllUsers();
     }
     logout() {
       this.AuthService.logout();
@@ -61,3 +61,6 @@ export class PageAdminComponent implements OnInit {
     }
   }
 
+
+
+  

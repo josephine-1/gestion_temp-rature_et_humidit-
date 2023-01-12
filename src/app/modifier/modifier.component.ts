@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-modifier',
   templateUrl: './modifier.component.html',
@@ -70,4 +71,9 @@ export class ModifierComponent implements OnInit {
     );
   } 
 
+}
+export function  noWhitespaceValidator(control: FormControl) {
+  const isWhitespace = (control.value || '').trim().length === 0;
+  const isValid = !isWhitespace;
+  return isValid ? null : { 'whitespace': true };
 }

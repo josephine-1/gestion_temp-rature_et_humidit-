@@ -6,7 +6,7 @@
         <span class="alert-danger danger"  *ngIf="mailExiste != '' && mailExiste != undefined"> mail existe déja </span>
         <div class="form-group">
           <label>Prenom</label>
-          <input class="form-control" type="text" formControlName="prenom" required/>
+          <input class="form-control"  type="text" formControlName="prenom" required/>
           <div class="alert-danger danger " *ngIf="updateForm.controls['prenom'].invalid && updateForm.controls['prenom'].touched"> Champs obligatoire</div>
         </div><br>
         <div class="form-group">

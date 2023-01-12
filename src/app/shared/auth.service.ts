@@ -84,6 +84,13 @@ export class AuthService {
     return this.http.get(api);
   }
 
+  miseAJour(id: any, data: any): Observable<any> {
+    let API_URL = `${this.endpoint}/miseAJour/${id}`;
+    return this.httpClient
+      .put(API_URL, data, { headers: this.httpHeaders })
+      .pipe(catchError(this.handleError));
+  }
+
   // Error
   handleError(error: HttpErrorResponse) {
     let msg = '';
