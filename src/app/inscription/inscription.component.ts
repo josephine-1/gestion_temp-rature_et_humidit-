@@ -110,7 +110,7 @@ export class InscriptionComponent implements OnInit {
       if (iterator.email == this.registerForm.value.email) {
         this.mailExiste = 'Email existe déja';
         // alert ("Email existant");
-        this.registerForm.reset();
+       // this.registerForm.reset();
         console.log(this.mailExiste);
         return;
       }
