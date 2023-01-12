@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './.././shared/auth.service';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
@@ -124,9 +125,9 @@ export class InscriptionComponent implements OnInit {
         this.mailExiste = 'Email existe déja';
       }
     });
-
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
-      this.registerForm.reset();
+Swal.fire("Inscription réussie")
+   // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
+      window.location.reload();
   }
 }
 //ici j'exporte la class MushMatch pour la gestion de mes mots de passes
