@@ -1,5 +1,6 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../auth.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-page-admin',
@@ -7,9 +8,11 @@ import Swal from 'sweetalert2';
   styleUrls: ['./page-admin.component.scss']
 })
 export class PageAdminComponent implements OnInit {
+  [x: string]: any;
+  fullname: string|null = null;
   constructor(private ngZone:NgZone,private router: Router,private activatedRoute: ActivatedRoute
     ){}
-
+    
   choice(){
     Swal.fire({
       title: 'Modifier Profil',
@@ -44,7 +47,17 @@ export class PageAdminComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-
+  
+    async ngOnInit() {
+      if(!localStorage.getItem('matricule')) {
+        this.router.navigate(['/']);
+      }
+      this.fullname = localStorage.getItem('fullname');
+    
+    }
+    logout() {
+      this.AuthService.logout();
+      this.router.navigate(['/']);
+    }
   }
-}
+

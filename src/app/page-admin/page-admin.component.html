@@ -10,13 +10,18 @@
 
     <div class="container col-md-8  p-3">
 <!-- Start partie 1 -->
-<div class="container part1 " style="border: 3px solid white;border-radius: 15px ;">
-            <div class=" row " >
+<div class="container part1  " style="border: 3px solid white;border-radius: 15px ;">
+            <div class="d-flex " >
                   <div class="col-lg-10 col-md-4 col-lg-3">
-                  <a href="" routerLink="/off" style="font-size: 24px;"> Dashbord</a> <img src="../../assets/dash.png" alt="deconect" >
+                  <a href="" routerLink="/off" style="font-size:24px;"> Dashbord</a>
+                   <img src="../../assets/dash.png" alt="deconect" >
                   </div>
+                 <div  class="">
+                  <h6 class="text-white  border-white rounded border"  style="max-width:max-content; width: 150px;">{{fullname}} 
+                    <img src="../../assets/active.jpg" style="width: 15px;"> </h6>
+                 </div>
 
-                  <div class="deconect mt-2 col-lg-2 col-md-4 col-lg-3 " style="position:absolute;right:  0;" >
+                  <div class=" " style="right:  0;" >
                       <img src="../../assets/deconecter.png" alt="deconect" style="height: 50px;" (click)="deconnect()">
                   </div>
 
