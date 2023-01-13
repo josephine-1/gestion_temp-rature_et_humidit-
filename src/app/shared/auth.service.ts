@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 
 export class AuthService {
-  endpoint: string = 'http://localhost:4000/api';
+  endpoint: string = 'http://localhost:5000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
 
@@ -31,7 +31,7 @@ export class AuthService {
 
   update(id: any , user: User) {
     return this.http
-      .put<User>(`${this.endpoint}/update-user/${id}`, user)   
+      .put<User>(`${this.endpoint}/update-user/${id}`, user)
   }
 
   getUserById(id: any): Observable<any> {
@@ -43,7 +43,7 @@ export class AuthService {
       catchError(this.handleError)
     );
   }
-  
+
   getToken() {
     return localStorage.getItem('access_token');
   }

@@ -38,7 +38,7 @@ constructor(
         this.authService.getUserProfile(res._id).subscribe((res) => {
           // this.currentUser = res._id;
           localStorage.setItem("id",res.msg._id)
-          console.log(res.msg.password)
+          console.log(res.msg)
           if(res.msg.etat==true){
             if(res.msg.role=="administrateur"){
               this.router.navigateByUrl("pageAdmin");
