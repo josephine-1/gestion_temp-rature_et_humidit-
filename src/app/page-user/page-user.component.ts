@@ -1,18 +1,29 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import Swal from 'sweetalert2';
 import { AuthService } from '../shared/auth.service';
+import Swal from 'sweetalert2';
+import { FormGroup } from '@angular/forms';
+
 @Component({
   selector: 'app-page-user',
   templateUrl: './page-user.component.html',
   styleUrls: ['./page-user.component.scss']
 })
 export class PageUserComponent implements OnInit {
+  currentUser: any = {};
+  getItem: any = {};
+  submitted: Boolean= false
+  mailExiste:string='';
+  succes:string='Modifier avec succes';
+  getId: any;
+  registerForm!: FormGroup<any>;
+  showForm = false;
   constructor(private activatedRoute: ActivatedRoute,
     private ngZone:NgZone,private router: Router,
     private actRoute: ActivatedRoute,
     public authService: AuthService,
     public AuthService: AuthService,
+   
     ){}
 
   choice(){
@@ -53,6 +64,13 @@ export class PageUserComponent implements OnInit {
     this.AuthService.doLogout();
   }
   ngOnInit(): void {
-
+    let id = this.actRoute.snapshot.paramMap.get('id');
+    this.authService.getUserProfile(localStorage.getItem('id')).subscribe((res) => {
+      console.log(res)
+      this.currentUser = res.msg;
+      
+      
+     
+    }); 
   }
 }
