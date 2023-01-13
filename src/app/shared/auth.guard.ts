@@ -20,8 +20,8 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     if (this.authService.isLoggedIn !== true) {
-      window.alert('Vous etes deconnecté !!!');
-      this.router.navigate(['connexion']);
+     // window.alert('Veuillez vous connecté d_abord');
+      this.router.navigateByUrl('/connexion')
     }
     return true;
   }

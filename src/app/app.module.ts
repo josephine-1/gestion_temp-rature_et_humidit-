@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { ListArchivesComponent } from './list-archives/list-archives.component';
-import { ModifierComponent } from './modifier/modifier.component';
+//import { ModifierComponent } from './modifier/modifier.component';
 import { RouterModule } from '@angular/router';
 //  import { ReactiveFormsModule } from '@angular/forms'
 import { InscriptionComponent } from './inscription/inscription.component';
@@ -21,7 +21,7 @@ import { PageUserComponent } from './page-user/page-user.component';
 import { ListeAdministrateurComponent } from './liste-administrateur/liste-administrateur.component';
 import { AuthInterceptor } from './shared/authconfig.interceptor';
 import { DashbordComponent } from './dashbord/dashbord.component';
-import { DashbordOnComponent } from './dashbord-on/dashbord-on.component';
+//import { DashbordOnComponent } from './dashbord-on/dashbord-on.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PaginationComponent } from './pagination/pagination.component';
@@ -43,7 +43,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     LoginComponent,
     AdminComponent,
     ListArchivesComponent,
-    ModifierComponent,
+   //// ModifierComponent,
     InscriptionComponent,
     ProfilComponent,
     ModifierProfilComponent,
@@ -53,7 +53,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     PageUserComponent,
     ListeAdministrateurComponent,
     DashbordComponent,
-    DashbordOnComponent,
+  //  DashbordOnComponent,
     PaginationComponent,
   
     
@@ -68,7 +68,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     RouterModule,
     HttpClientModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule 
+    Ng2SearchPipeModule
     
   
    

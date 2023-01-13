@@ -8,19 +8,20 @@
 </head>
 <body >
 
-    <div class="container col-md-8  p-3">
+    <div class="container col-md-8  p-3" *ngIf="!showForm">
 <!-- Start partie 1 -->
-<div class="container part1 " style="border: 3px solid white;border-radius: 15px ;">
-            <div class=" row " >
-                  <div class="col-lg-10 col-md-4 col-lg-3">
-                  <a href="" routerLink="/off" style="font-size: 24px;"> Dashbord</a> <img src="../../assets/dash.png" alt="deconect" >
+<div class="container part1  " style="border: 3px solid white;border-radius: 15px ;">
+            <div class="d-flex  p-1" >
+                  <div class="col-lg-9 ">
+                  <a href="" routerLink="/off" style="font-size:24px;"> Dashbord</a>
+                   <img src="../../assets/dash.png" alt="deconect" >
                   </div>
-                  <div class="inner-main">
-                    <h2 class="mb-4">Admin Profile</h2>
-                    <p><strong> </strong> {{ this.currentUser.prenom }}</p>
-                    <p><strong> </strong> {{ this.currentUser.nom }}</p>
+                  <div class="">
+                    <h6 class="text-white  p-1 border" style="border-top-right-radius:1rem;border-bottom-left-radius:1rem; width: max-content;">
+                      {{ this.currentUser.prenom }}  {{ this.currentUser.nom }} <img src="../../assets/cnUser.png" class="rounded-circle" style="width:15px;"></h6>
+                    
                   </div>
-                  <div class="deconect mt-2 col-lg-2 col-md-4 col-lg-3 " style="position:absolute;right:  0;" >
+                  <div class="deconect mt-2">
                       <img src="../../assets/deconecter.png" alt="deconect" style="height: 50px;" (click)="doLogout()">
                   </div>
 
@@ -31,13 +32,13 @@
         <div class="row">
         <div class="gestion col-lg-4" style="  border: 2px solid white; height:200px ; border-radius: 15px ; border: 2px solid white;">
 
-            <img src="../../assets/iconeUser.png" alt="deconect"><a routerLink="/inscription">Ajouter Utilisateurs</a>
+          <a routerLink="/inscription"> <img src="../../assets/iconeUser.png" alt="deconect">Ajouter Utilisateurs</a>
 
             <div><br>
-                <img src="../../assets/modUser.png" alt="deconect" (click)="choice()"><a>Modifier_profile</a>
+              <img src="../../assets/modUser.png" alt="deconect" ><button class="btn" (click)="getData(this.currentUser.id, this.currentUser.nom, this.currentUser.prenom, this.currentUser.email)">Modifier_profile</button>
             </div><br>
             <div>
-                <img src="../../assets/listeUser.png" alt="deconect"><a routerLink="/listeAdmin">Liste Utilisateurs</a>
+              <a routerLink="/listeAdmin"><img src="../../assets/listeUser.png" alt="deconect">Liste Utilisateurs</a>
             </div>
        </div>
        <!--  -->
@@ -47,27 +48,28 @@
                 <h3 class="text-white text-center border border-white" style="border-radius: 5px;">temps reel</h3>
                 </div>
                 <div class="row">
-                <div class="col-lg-4">
-                    <h4 class="text-white  ">Température</h4>
-                   <!--  -->
-                   <div>
-                    <img  src="../../assets/Temp.png" alt="Temp" style="height: 50px;"><a href=""> 25°C </a>
+                  <div class="col-lg-4">
+                      <h4 class="text-white  ">Température</h4>
+                     <!--  -->
+                     <div>
+                      <img  src="../../assets/Temp.png" alt="Temp" style="height: 50px;"><a href=""> 25°C </a>
+                  </div>
+                  </div>
+                  <div class=" mt-4 border-white border rounded-flex justify-content-center p-4 gap-5 col">
+                    
+                    <img src="../../assets/buzzerOff.png" alt="hum" style="height: 50px;">
+                    <img src="../../assets/minfanOff.png" alt="hum" style="height: 50px;">
+                
                 </div>
-                </div>
-                <div class="col-lg-5">
-
-                  <!-- <h1 class="text-white  ">Humidité</h1>
-                  <img src="../../assets/hum.png" alt="hum"> -->
+                  <div class="col-lg-3">
+  
+                      <h4 class="text-white  ">Humidité</h4>
+                      <div>
+                       <img src="../../assets/hum.png" alt="hum" style="height: 50px;"><a href=""> 60% </a>
+                      </div>
+                  </div>
+                   </div>
               </div>
-                <div class="col-lg-3">
-
-                    <h4 class="text-white  ">Humidité</h4>
-                    <div>
-                     <img src="../../assets/hum.png" alt="hum" style="height: 50px;"><a href=""> 60% </a>
-                    </div>
-                </div>
-                 </div>
-            </div>
         </div>
     </div>
       </div>
@@ -108,6 +110,53 @@
     </div>
 </div>
  <!-- End partie2 -->
+    </div>
+
+    <div class="container col-md-6" style=" border-radius:10px" *ngIf="showForm">
+      <form method="POST" class="row g-3" id="loginform" [formGroup]="registerForm" (click)="onSubmit();">
+        <span *ngIf="mailExiste != '' && mailExiste != undefined" class="alert alert-danger "> mail existe déja </span>
+        
+        <div>
+          <h2 class="text-center mt-5 text-white" id="titre">FORMULAIRE MODIFICATION PROFIL</h2>
+        </div>
+        <div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label text-white" >PRENOM</label>
+          <input type="text" formControlName="prenom" class="form-control"  placeholder="PRENOM"
+          [ngClass]="{ 'is-invalid': submitted && registerForm.controls['prenom'].errors }" />
+          <div *ngIf="submitted &&  registerForm.controls['prenom'].errors" class="text-danger">
+          <div *ngIf="registerForm.controls['prenom'].errors['required'];then content else other_content">here is ignored</div>
+          <ng-template #content>Ce champ est requis</ng-template>
+          <ng-template #other_content>invalide</ng-template>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label text-white">NOM</label>
+          <input type="text" formControlName="nom" class="form-control"  placeholder="NOM"
+          [ngClass]="{ 'is-invalid': submitted && registerForm.controls['nom'].errors }" />
+          <div *ngIf="submitted &&  registerForm.controls['nom'].errors" class="text-danger">
+            <div *ngIf="registerForm.controls['nom'].errors['required'];then content else other_content">here is ignored</div>
+            <ng-template #content>Ce champ est requis</ng-template>
+            <ng-template #other_content>invalide</ng-template>
+            </div>
+           </div>
+        <div class="col-8 a">
+          <label for="inputAddress" class="form-label text-white">EMAIL</label>
+          <input type="text" formControlName="email" class="form-control"  placeholder="EMAIL"
+          [ngClass]="{ 'is-invalid': submitted && registerForm.controls['email'].errors }" />
+          <div *ngIf="submitted &&  registerForm.controls['email'].errors" class="text-danger">
+          <div *ngIf=" registerForm.controls['email'].errors['required']">Ce champ est requis</div>
+          <div *ngIf=" registerForm.controls['email'].errors['pattern']">Format Mail incorrect</div>
+        </div>
+      </div>
+        <br>
+        <br>
+        <div class="form-group pied">
+          <button class="btn btn-primary btn-block noir" routerLink="/pageAdmin" type="submit">Modifier</button>
+          <button class=" btn btn-primary noir" routerLink="/listeAdmin">Retour</button>
+        </div>
+      </form>
     </div>
 
 </body>
