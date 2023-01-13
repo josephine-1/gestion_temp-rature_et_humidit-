@@ -8,14 +8,17 @@
 </head>
 <body >
 
-    <div class="container col-md-8  p-3">
+    <div class="container bg-black bg-opacity-50 col-md-8  p-3">
 <!-- Start partie 1 -->
 <div class="container part1 " style="border: 3px solid white;border-radius: 15px ;">
             <div class=" row " >
                   <div class="col-lg-10 col-md-4 col-lg-3">
                   <a href="" routerLink="/off" style="font-size: 24px;"> Dashbord</a> <img src="../../assets/dash.png" alt="deconect" >
                   </div>
-
+                 <div class="inner-main">
+                    <h6 class="text-white border" style="border-bottom-right-radius:1rem; width: 130px;">{{ this.currentUser.prenom }}  {{ this.currentUser.nom }} <img src="../../assets/active.jpg" style="width:15px;"></h6>
+                    
+                  </div>
                   <div class="deconect mt-2 col-lg-2 col-md-4 col-lg-3 " style="position:absolute;right:  0;" >
                       <img src="../../assets/deconecter.png" alt="deconect" style="height: 50px;" (click)="deconnect()">
                   </div>

@@ -1,16 +1,22 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthService } from '../auth.service';
+/* import { AuthService } from '../auth.service'; */
 import Swal from 'sweetalert2';
+import { AuthService } from '../shared/auth.service';
+
 @Component({
   selector: 'app-page-admin',
   templateUrl: './page-admin.component.html',
   styleUrls: ['./page-admin.component.scss']
 })
 export class PageAdminComponent implements OnInit {
-  [x: string]: any;
-  fullname: string|null = null;
-  constructor(private ngZone:NgZone,private router: Router,private activatedRoute: ActivatedRoute
+
+  currentUser: any = {};
+  getItem: any = {};
+
+  constructor(private ngZone:NgZone,private router: Router,private activatedRoute: ActivatedRoute,
+    private actRoute: ActivatedRoute,
+    public authService: AuthService,
     ){}
     
   choice(){
@@ -40,27 +46,31 @@ export class PageAdminComponent implements OnInit {
       cancelButtonText: 'NON',
     }).then((result) => {
         if (result.value) {
-          this.ngZone.run(() => this.router.navigateByUrl('/'));
+          this.ngZone.run(() => this.router.navigateByUrl('/connexion'));
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           (result.dismiss === Swal.DismissReason.cancel)
         }
     })
   }
 
-  
-    async ngOnInit() {
-      if(!localStorage.getItem('matricule')) {
-        this.router.navigate(['/']);
-      }
-      this.fullname = localStorage.getItem('fullname');
-      this.getAllUsers();
-    }
-    logout() {
-      this.AuthService.logout();
-      this.router.navigate(['/']);
+  ngOnInit(): void {
+    let id = this.actRoute.snapshot.paramMap.get('id');
+    this.authService.getUserProfile(localStorage.getItem('id')).subscribe((res) => {
+      console.log(res)
+      this.currentUser = res.msg;
+      
+     
+    }); 
+
+  }
+
+  doLogout() {
+    let removeToken = localStorage.removeItem('access_token');
+    if (removeToken == null) {
+      this.router.navigate(['connexion']);
     }
   }
 
 
 
-  
+}

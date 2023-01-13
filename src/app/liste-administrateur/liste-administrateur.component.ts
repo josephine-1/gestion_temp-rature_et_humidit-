@@ -1,6 +1,3 @@
-
-
-
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -8,9 +5,9 @@ import UsersJson from '../users.json';
 import { AuthService } from '../shared/auth.service';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; /* recherche */
+import { HttpErrorResponse } from '@angular/common/http';
 
 interface USERS {
-
   Nom: String;
   Prenom: String;
   Matricule: String;
@@ -21,21 +18,19 @@ interface USERS {
 @Component({
   selector: 'app-liste-administrateur',
   templateUrl: './liste-administrateur.component.html',
-  styleUrls: ['./liste-administrateur.component.scss']
+  styleUrls: ['./liste-administrateur.component.scss'],
 })
-export class ListeAdministrateurComponent implements OnInit{
-
-   /* liste fiective à remplacer Books par []  pour les données rééels*/
+export class ListeAdministrateurComponent implements OnInit {
+  /* liste fiective à remplacer Books par []  pour les données rééels*/
 
   pages: number = 1;
-  searchText:any; // search installer npm i ng2-search-filter
+  searchText: any; // search installer npm i ng2-search-filter
 
   User: any = [];
-  data:any;
+  data: any;
   ngZone: any;
-  router: any;
 
-  deconnect(){
+  deconnect() {
     Swal.fire({
       title: 'Déconnexion',
       text: 'Êtes-vous sûre de vouloir vous déconnecter ?',
@@ -44,31 +39,34 @@ export class ListeAdministrateurComponent implements OnInit{
       confirmButtonText: 'OUI',
       cancelButtonText: 'NON',
     }).then((result) => {
-        if (result.value) {
-          // this.ngZone.run(() => this.router.navigateByUrl(''));
-          this.logout();
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-          (result.dismiss === Swal.DismissReason.cancel)
-        }
-    })
-  }
-
-
-  constructor(public AuthService: AuthService) {}
-
-  ngOnInit(): void {
-    this.AuthService.getAllUser().subscribe((res) => {
-      console.log(res);
-      this.data = res;
-      this.User = this.data.filter((e: any) => e.etat == true );
+      if (result.value) {
+        // this.ngZone.run(() => this.router.navigateByUrl(''));
+        this.logout();
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        result.dismiss === Swal.DismissReason.cancel;
+      }
     });
   }
-  logout(){
+
+  constructor(public AuthService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.AuthService.getAllUser().subscribe((res: any) => {
+      console.log(res);
+      
+      this.data = res;
+      this.User = this.data.filter((e: any) => e.etat == true);
+    });
+    if (this.data.status == 401) {
+      this.router.navigateByUrl("/connexion");
+    }
+  }
+  
+  logout() {
     this.AuthService.doLogout();
   }
 
-
-/*   delete(id: any, i: any) {
+  /*   delete(id: any, i: any) {
     console.log(id);
     if (window.confirm('Do you want to go ahead?')) {
       this.AuthService.deleteBook(id).subscribe((res) => {
@@ -76,36 +74,35 @@ export class ListeAdministrateurComponent implements OnInit{
       });
     }
   } */
-  /* switcher */
   changeRole = (id: any, role: any) => {
-    role == 'administrateur' ? role ='utilisateur_simple' : role= 'administrateur'; /* pour switche */
-     const users = { role: role };
+    role == 'administrateur'
+      ? (role = 'utilisateur_simple')
+      : (role = 'administrateur'); /* pour switche */
+    const users = { role: role };
     if (confirm('Changer de role')) {
       this.AuthService.update(id, users).subscribe((data) => {
         this.ngOnInit();
       });
     }
-  }; 
-/* pour archiver */
+  };
+
   changeEtat = (id: any, etat: any) => {
-    etat == true ? etat = false : etat= true; /* pour archiver */
-     const users = { etat: etat };
+    etat == true ? (etat = false) : (etat = true); /* pour switche */
+    const users = { etat: etat };
     if (confirm('Voulez vous archiver ?')) {
       this.AuthService.update(id, users).subscribe((data) => {
         this.ngOnInit();
       });
     }
-  }; 
+  };
 
- // changeRole2 = (id: any, etat: any) => {
-   // etat = etat == true ? false : true; /* pour archiver */
-    /* const user = { etat: etat };
+  // changeRole2 = (id: any, etat: any) => {
+  // etat = etat == true ? false : true; /* pour archiver */
+  /* const user = { etat: etat };
     if (confirm('Archiver !!!')) {
       this.crudService.change_role(id, user).subscribe((data) => {
         this.ngOnInit();
       });
     }
   }; */
-
 }
-

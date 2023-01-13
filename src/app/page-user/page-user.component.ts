@@ -1,5 +1,6 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../shared/auth.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-page-user',
@@ -7,7 +8,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./page-user.component.scss']
 })
 export class PageUserComponent implements OnInit {
-  constructor(private ngZone:NgZone,private router: Router,private activatedRoute: ActivatedRoute
+   currentUser: any = {};
+   getItem: any = {};
+   active = '';
+   constructor(private ngZone:NgZone,private router: Router,private activatedRoute: ActivatedRoute,
+    private actRoute: ActivatedRoute,
+    public authService: AuthService,
     ){}
 
   choice(){
@@ -45,6 +51,13 @@ export class PageUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    let id = this.actRoute.snapshot.paramMap.get('id');
+    this.authService.getUserProfile(localStorage.getItem('id')).subscribe((res) => {
+      console.log(res)
+      this.currentUser = res.msg;
+      this.active 
+      
+     
+    }); 
   }
 }

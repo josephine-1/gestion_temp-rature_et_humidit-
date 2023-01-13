@@ -16,13 +16,12 @@
                   <a href="" routerLink="/off" style="font-size:24px;"> Dashbord</a>
                    <img src="../../assets/dash.png" alt="deconect" >
                   </div>
-                 <div  class="">
-                  <h6 class="text-white  border-white rounded border"  style="max-width:max-content; width: 150px;">{{fullname}} 
-                    <img src="../../assets/active.jpg" style="width: 15px;"> </h6>
-                 </div>
-
-                  <div class=" " style="right:  0;" >
-                      <img src="../../assets/deconecter.png" alt="deconect" style="height: 50px;" (click)="deconnect()">
+                  <div class="">
+                    <h6 class="text-white border" style="border-bottom-right-radius:1rem;">{{ this.currentUser.prenom }}  {{ this.currentUser.nom }} <img src="../../assets/active.jpg" style="width:15px;"></h6>
+                    
+                  </div>
+                  <div class="deconect mt-2 col-lg-2 col-md-4 col-lg-3 " style="right:  0;" >
+                      <img src="../../assets/deconecter.png" alt="deconect" style="height: 50px;" (click)="doLogout()">
                   </div>
 
              </div>
@@ -32,13 +31,13 @@
         <div class="row">
         <div class="gestion col-lg-4" style="  border: 2px solid white; height:200px ; border-radius: 15px ; border: 2px solid white;">
 
-            <img src="../../assets/iconeUser.png" alt="deconect"><a routerLink="/inscription">Ajouter Utilisateurs</a>
+          <a routerLink="/inscription"> <img src="../../assets/iconeUser.png" alt="deconect">Ajouter Utilisateurs</a>
 
             <div><br>
-                <img src="../../assets/modUser.png" alt="deconect" (click)="choice()"><a>Modifier_profile</a>
+              <a><img src="../../assets/modUser.png" alt="deconect" (click)="choice()">Modifier_profile</a>
             </div><br>
             <div>
-                <img src="../../assets/listeUser.png" alt="deconect"><a routerLink="/listeAdmin">Liste Utilisateurs</a>
+              <a routerLink="/listeAdmin"><img src="../../assets/listeUser.png" alt="deconect">Liste Utilisateurs</a>
             </div>
        </div>
        <!--  -->
@@ -64,7 +63,7 @@
 
                     <h4 class="text-white  ">Humidité</h4>
                     <div>
-                     <img src="../../assets/hum.png" alt="hum" style="height: 50px;"><a href=""> 60% </a>
+                     <img src="../../assets/hum.png" alt="hum" style="height: 50px;">60% 
                     </div>
                 </div>
                  </div>
