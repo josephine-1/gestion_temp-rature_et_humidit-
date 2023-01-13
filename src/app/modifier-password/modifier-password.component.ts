@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 //ici j'importe des proprietés de angular liées a l'utilisation des formulaire
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+//import { CrudService } from './../services/inscription.service';
+import { AuthService } from '../shared/auth.service';
+import { NgZone } from '@angular/core';
+
 
 @Component({
   selector: 'app-modifier-password',
@@ -10,21 +15,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ModifierPasswordComponent implements OnInit{
   registerForm!: FormGroup
   submitted: Boolean= false
+
   //ici on gére le controle de saisit du formulaire
   ngOnInit(){
     this.registerForm = this.formBuilder.group({
-      ancienpassword: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
+      actuelPass: ['', Validators.required],
+      newPass: ['', Validators.required],
+      confirmPass: ['', Validators.required],
 
 
     }, {
-      validator: MustMatch('password', 'confirmPassword')//ici je précise au validator que la class MushMatch
+      validator: MustMatch('newPass', 'confirmPass')//ici je précise au validator que la class MushMatch
                                                         //va géré la comparaison des mots de passe
   });
 
     }
-  constructor(private formBuilder: FormBuilder){
+  constructor(private formBuilder: FormBuilder,
+    private authservice:AuthService){
 
   }
 
@@ -34,11 +41,15 @@ export class ModifierPasswordComponent implements OnInit{
      onSubmit() {
          this.submitted = true;
 
+
          // arrêtez-vous ici si le formulaire est invalide
          if (this.registerForm.invalid) {
              return;
          }
+         this.authservice.updatePassword(localStorage.getItem('id'), this.registerForm.value).subscribe((data)=>{
+          // console.log(data);
 
+         })
          alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
      }
 

@@ -49,15 +49,32 @@ export class PageAdminComponent implements OnInit {
       }
     });
   }
+  choice(){
+    Swal.fire({
+      title: 'Modifier Profil',
+      showCancelButton: true,
+      confirmButtonText: 'modifier profil',
+      cancelButtonText: 'modifier mot_de_passe',
+    }).then((result) => {
+   if (result.value) {
+        this.ngZone.run(() => this.router.navigateByUrl('/modifierProfil'));
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        (result.dismiss === Swal.DismissReason.cancel)
+        this.ngZone.run(() => this.router.navigateByUrl('/modifierPassword'));
+      }
+
+
+    })
+  }
 
   ngOnInit(): void {
     let id = this.actRoute.snapshot.paramMap.get('id');
     this.authService.getUserProfile(localStorage.getItem('id')).subscribe((res) => {
       console.log(res)
       this.currentUser = res.msg;
-      
-     
-    }); 
+
+
+    });
 
     this.registerForm = this.formBuilder.group({
       prenom: ['', [Validators.required, noWhitespaceValidator]],
@@ -80,9 +97,9 @@ export class PageAdminComponent implements OnInit {
         prenom: [prenom, [Validators.required, noWhitespaceValidator]],
         nom: [nom, [Validators.required, noWhitespaceValidator]],
         email: [email, [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-  
-  
-  
+
+
+
       })
   }
 
@@ -92,7 +109,7 @@ export class PageAdminComponent implements OnInit {
       this.router.navigate(['connexion']);
     }
   }
-  
+
   onSubmit() {
     this.submitted = true;
 
@@ -100,7 +117,7 @@ export class PageAdminComponent implements OnInit {
     if (this.registerForm.invalid) {
         return;
     }
-    
+
      this.AuthService.miseAJour(this.getId, this.registerForm.value).subscribe(
        () => {
          alert(this.succes),
@@ -110,7 +127,7 @@ export class PageAdminComponent implements OnInit {
          this.mailExiste = "Email existe déja";
        }
      );
-   
+
 
    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
 }

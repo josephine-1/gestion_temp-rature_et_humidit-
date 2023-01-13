@@ -91,6 +91,19 @@ export class AuthService {
       .pipe(catchError(this.handleError));
   }
 
+  updatePassword(id: any, data: any): Observable<any> {
+    console.log(id);
+
+    console.log(data);
+
+    let API_URL = `${this.endpoint}/updateUser/${id}`;
+    // return this.httpClient
+    //   .put(API_URL, data, { headers: this.httpHeaders })
+    //   .pipe(catchError(this.handleError));
+    return this.httpClient.patch(`${this.endpoint}/updateUser/${id}`, {"actuelPass": data.actuelPass,
+  "newPass":data.newPass})
+  }
+
   // Error
   handleError(error: HttpErrorResponse) {
     let msg = '';

@@ -16,7 +16,7 @@
                   <a href="" routerLink="/off" style="font-size: 24px;"> Dashbord</a> <img src="../../assets/dash.png" alt="deconect" >
                   </div>
                   <div class="inner-main">
-                   
+
                     <p><strong> </strong> {{ this.currentUser.prenom }}</p>
                     <p><strong> </strong> {{ this.currentUser.nom }}</p>
                   </div>
@@ -34,7 +34,7 @@
             <img src="../../assets/iconeUser.png" alt="deconect"><a routerLink="/inscription">Ajouter Utilisateurs</a>
 
             <div><br>
-                <img src="../../assets/modUser.png" alt="deconect" ><button class="btn" (click)="getData(this.currentUser.id, this.currentUser.nom, this.currentUser.prenom, this.currentUser.email)">Modifier_profile</button>
+                <img src="../../assets/modUser.png" alt="deconect" ><button class="btn" (click)="choice()">Modifier_profile</button>
             </div><br>
             <div>
                 <img src="../../assets/listeUser.png" alt="deconect"><a routerLink="/listeAdmin">Liste Utilisateurs</a>
@@ -113,7 +113,7 @@
     <div class="container col-md-6" style=" border-radius:10px" *ngIf="showForm">
       <form method="POST" class="row g-3" id="loginform" [formGroup]="registerForm" (click)="onSubmit();">
         <span *ngIf="mailExiste != '' && mailExiste != undefined" class="alert alert-danger "> mail existe déja </span>
-        
+
         <div>
           <h2 class="text-center mt-5 text-white" id="titre">FORMULAIRE MODIFICATION PROFIL</h2>
         </div>
