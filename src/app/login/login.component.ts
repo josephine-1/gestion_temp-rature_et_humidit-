@@ -25,8 +25,16 @@ constructor(
 }
 
   ngOnInit(): void {
+    
     this.signinForm = this.fb.group({
-      email : ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+        ],
+      ],
       password : ['', Validators.required],
     });
   }
@@ -38,7 +46,7 @@ constructor(
         this.authService.getUserProfile(res._id).subscribe((res) => {
           // this.currentUser = res._id;
           localStorage.setItem("id",res.msg._id)
-          console.log(res.msg)
+          console.log(res.msg.password)
           if(res.msg.etat==true){
             if(res.msg.role=="administrateur"){
               this.router.navigateByUrl("pageAdmin");
