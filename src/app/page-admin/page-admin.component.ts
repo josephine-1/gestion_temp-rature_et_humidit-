@@ -41,12 +41,13 @@ export class PageAdminComponent implements OnInit {
       confirmButtonText: 'OUI',
       cancelButtonText: 'NON',
     }).then((result) => {
-        if (result.value) {
-          this.ngZone.run(() => this.router.navigateByUrl('/connexion'));
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-          (result.dismiss === Swal.DismissReason.cancel)
-        }
-    })
+      if (result.value) {
+        // this.ngZone.run(() => this.router.navigateByUrl(''));
+        this.logout();
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        result.dismiss === Swal.DismissReason.cancel;
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -69,7 +70,9 @@ export class PageAdminComponent implements OnInit {
 
 
   }
-
+  logout() {
+    this.AuthService.doLogout();
+  }
   getData(id:any,nom:any,prenom:any, email:any){
       this.showForm= true
       this.registerForm = this.formBuilder.group({

@@ -6,6 +6,7 @@ import { AuthService } from './.././shared/auth.service';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { NgClass } from '@angular/common';
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',

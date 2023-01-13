@@ -21,7 +21,7 @@
                     <p><strong> </strong> {{ this.currentUser.nom }}</p>
                   </div>
                   <div class="deconect mt-2 col-lg-2 col-md-4 col-lg-3 " style="position:absolute;right:  0;" >
-                      <img src="../../assets/deconecter.png" alt="deconect" style="height: 50px;" (click)="doLogout()">
+                      <img src="../../assets/deconecter.png" alt="deconect" style="height: 50px;" (click)="deconnect()">
                   </div>
 
              </div>
@@ -34,7 +34,7 @@
             <img src="../../assets/iconeUser.png" alt="deconect"><a routerLink="/inscription">Ajouter Utilisateurs</a>
 
             <div><br>
-                <img src="../../assets/modUser.png" alt="deconect" ><a (click)="getData(this.currentUser.id, this.currentUser.prenom, this.currentUser.nom, this.currentUser.email)">Modifier_profile</a>
+                <img src="../../assets/modUser.png" alt="deconect" ><button class="btn" (click)="getData(this.currentUser.id, this.currentUser.nom, this.currentUser.prenom, this.currentUser.email)">Modifier_profile</button>
             </div><br>
             <div>
                 <img src="../../assets/listeUser.png" alt="deconect"><a routerLink="/listeAdmin">Liste Utilisateurs</a>
@@ -61,7 +61,7 @@
               </div>
                 <div class="col-lg-3">
 
-                    <h4 class="text-white  ">Humidité</h4>
+                    <h4 class="text-white ">Humidité</h4>
                     <div>
                      <img src="../../assets/hum.png" alt="hum" style="height: 50px;"><a href=""> 60% </a>
                     </div>
@@ -111,7 +111,7 @@
     </div>
 
     <div class="container col-md-6" style=" border-radius:10px" *ngIf="showForm">
-      <form method="POST" class="row g-3" id="loginform" [formGroup]="registerForm" >
+      <form method="POST" class="row g-3" id="loginform" [formGroup]="registerForm" (click)="onSubmit();">
         <span *ngIf="mailExiste != '' && mailExiste != undefined" class="alert alert-danger "> mail existe déja </span>
         
         <div>
@@ -151,7 +151,7 @@
         <br>
         <br>
         <div class="form-group pied">
-          <button class="btn btn-primary btn-block noir" type="submit">Modifier</button>
+          <button class="btn btn-primary btn-block noir" routerLink="/pageAdmin" type="submit">Modifier</button>
           <button class=" btn btn-primary noir" routerLink="/listeAdmin">Retour</button>
         </div>
       </form>
