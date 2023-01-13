@@ -22,18 +22,15 @@ const routes: Routes = [
   { path: 'listeArchive', component: ListArchivesComponent},
   //{ path: 'modifier/:id', component: ModifierComponent},
   { path: 'listeAdmin', component: ListeAdministrateurComponent},
-  { path: 'inscription', component: InscriptionComponent},
+  { path: 'inscription', component: InscriptionComponent , canActivate: [AuthGuard]},
   { path: 'pageUser', component: PageUserComponent},
-  { path: 'modifierPassword', component: ModifierPasswordComponent},
-  { path: 'modifierProfil', component: ModifierProfilComponent},
-  { path: 'pageAdmin' , component: PageAdminComponent},
+  { path: 'modifierPassword', component: ModifierPasswordComponent, canActivate: [AuthGuard]},
+  { path: 'modifierProfil', component: ModifierProfilComponent, canActivate: [AuthGuard]},
+  { path: 'pageAdmin' , component: PageAdminComponent, canActivate: [AuthGuard]},
   { path: 'profil/:id' , component:ProfilComponent},
   { path: 'listeUser', component: ListeUserComponent},
   { path:  "off", component: DashbordComponent},
-  {
-    path: 'connexion',component: LoginComponent,
-    canActivate: [AuthGuard],
-  },
+  { path: 'pageAdmin',component: LoginComponent, canActivate: [AuthGuard]},
  // { path: 'on', component: DashbordOnComponent},
   // { path: 'user-profile/:id', component: PageAdminComponent, canActivate: [AuthGuard] }
 ];
