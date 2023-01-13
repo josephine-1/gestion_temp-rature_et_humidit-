@@ -45,7 +45,7 @@ export class InscriptionComponent implements OnInit {
           '',
           [
             Validators.required,
-            Validators.email,
+            Validators.email,noWhitespaceValidator,
             Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
           ],
         ],
