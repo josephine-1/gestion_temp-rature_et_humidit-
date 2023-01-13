@@ -113,7 +113,7 @@
     </div>
 
     <div class="container col-md-6" style=" border-radius:10px" *ngIf="showForm">
-      <form method="POST" class="row g-3" id="loginform" [formGroup]="registerForm" (click)="onSubmit();">
+      <form method="POST" class="row g-3" id="loginform" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <span *ngIf="mailExiste != '' && mailExiste != undefined" class="alert alert-danger "> mail existe déja </span>
         
         <div>
@@ -153,7 +153,7 @@
         <br>
         <br>
         <div class="form-group pied">
-          <button class="btn btn-primary btn-block noir" routerLink="/pageAdmin" type="submit">Modifier</button>
+          <button class="btn btn-primary btn-block noir" type="submit">Modifier</button>
           <button class=" btn btn-primary noir" routerLink="/listeAdmin">Retour</button>
         </div>
       </form>

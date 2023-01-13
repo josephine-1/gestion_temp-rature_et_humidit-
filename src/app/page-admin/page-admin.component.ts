@@ -29,7 +29,25 @@ export class PageAdminComponent implements OnInit {
     public authService: AuthService,
     public formBuilder: FormBuilder,
     public AuthService: AuthService,
-    ){}
+    ){
+      this.registerForm = this.formBuilder.group({
+        prenom: [''],
+        nom: [''],
+        email: [''],
+  
+        
+      });
+  
+       this.getId = this.activatedRoute.snapshot.paramMap.get('id');
+  
+      this.AuthService.getUserById(this.getId).subscribe((res) => {
+        this.registerForm.setValue({
+          prenom: res['prenom'],
+          nom: res['nom'],
+          email: res['email'],
+        });
+      }); 
+    }
 
 
   deconnect(){
@@ -51,7 +69,7 @@ export class PageAdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let id = this.actRoute.snapshot.paramMap.get('id');
+     this.getId = this.actRoute.snapshot.paramMap.get('id');
     this.authService.getUserProfile(localStorage.getItem('id')).subscribe((res) => {
       console.log(res)
       this.currentUser = res.msg;

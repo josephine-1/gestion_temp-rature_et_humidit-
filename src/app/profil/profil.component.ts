@@ -56,11 +56,7 @@ export class ProfilComponent implements OnInit{
         });
       }); 
   
-      this.registerForm = this.formBuilder.group({
-        prenom: [''],
-        nom: [''],
-        email: [''],
-      });
+     
 
   }
 
