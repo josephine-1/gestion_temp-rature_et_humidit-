@@ -15,6 +15,10 @@ import { NgZone } from '@angular/core';
 export class ModifierPasswordComponent implements OnInit{
   registerForm!: FormGroup
   submitted: Boolean= false
+  succes: any;
+  router: any;
+  ngZone: any;
+  pass!: string;
 
   //ici on gére le controle de saisit du formulaire
   ngOnInit(){
@@ -48,9 +52,19 @@ export class ModifierPasswordComponent implements OnInit{
          }
          this.authservice.updatePassword(localStorage.getItem('id'), this.registerForm.value).subscribe((data)=>{
           // console.log(data);
+       
+          alert("mot_de_passe modifier avec succes"),
+            //  window.location.reload();
+             this.router.navigateByUrl('/pageAdmin');
 
+          // this.ngZone.run(() => this.router.navigateByUrl('/pageAdmin'));
+         }
+         ,(err)=>{
+          this.pass= " mot_de_passe incorrect"
          })
-         alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+
+          // alert(this.succes),
+
      }
 
   }

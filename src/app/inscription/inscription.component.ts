@@ -127,7 +127,6 @@ export class InscriptionComponent implements OnInit {
       }
     });
 Swal.fire("Inscription réussie")
-   // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
       window.location.reload();
   }
 }
