@@ -97,9 +97,7 @@ export class AuthService {
     console.log(data);
 
     let API_URL = `${this.endpoint}/updateUser/${id}`;
-    // return this.httpClient
-    //   .put(API_URL, data, { headers: this.httpHeaders })
-    //   .pipe(catchError(this.handleError));
+
     return this.httpClient.patch(`${this.endpoint}/updateUser/${id}`, {"actuelPass": data.actuelPass,
   "newPass":data.newPass})
   }
