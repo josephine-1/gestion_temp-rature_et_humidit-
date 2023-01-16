@@ -26,23 +26,23 @@ export class PageUserComponent implements OnInit {
    
     ){}
 
-  choice(){
-    Swal.fire({
-      title: 'Modifier Profil',
-      showCancelButton: true,
-      confirmButtonText: 'modifier profil',
-      cancelButtonText: 'modifier mot_de_passe',
-    }).then((result) => {
-      if (result.value) {
-        // this.ngZone.run(() => this.router.navigateByUrl(''));
-        this.logout();
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        result.dismiss === Swal.DismissReason.cancel;
-      }
-
-
-    })
-  }
+   /*  choice(){
+      Swal.fire({
+        title: 'Modifier Profil',
+        showCancelButton: true,
+        confirmButtonText: 'modifier profil',
+        cancelButtonText: 'modifier mot_de_passe',
+      }).then((result) => {
+     if (result.value) {
+          this.ngZone.run(() => this.router.navigateByUrl('/modifierProfil'));
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          (result.dismiss === Swal.DismissReason.cancel)
+          this.ngZone.run(() => this.router.navigateByUrl('/modifierPassword'));
+        }
+  
+  
+      })
+    } */
   deconnect(){
     Swal.fire({
       title: 'Déconnexion',
@@ -73,4 +73,9 @@ export class PageUserComponent implements OnInit {
      
     }); 
   }
+}
+
+
+function rtn() {
+   window.history.back();
 }
